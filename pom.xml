@@ -8,11 +8,11 @@
 		<version>3.2.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>ku</groupId>
-	<artifactId>kinkao</artifactId>
+	<groupId>proud</groupId>
+	<artifactId>collection</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>kinkao</name>
-	<description>Restaurant Web</description>
+	<description>Book Collection Web</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
