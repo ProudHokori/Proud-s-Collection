@@ -1,7 +1,7 @@
 package ku.kinkao.service;
 
 
-import ku.kinkao.dto.RestaurantRequest;
+import ku.kinkao.dto.BookRequest;
 import ku.kinkao.entity.Book;
 import ku.kinkao.repository.BookRepository;
 import org.modelmapper.ModelMapper;
@@ -39,7 +39,7 @@ public class BookService {
     }
 
 
-    public void createBook(RestaurantRequest request) {
+    public void createBook(BookRequest request) {
         Book dao = modelMapper.map(request, Book.class);
         dao.setCreatedAt(Instant.now());
 

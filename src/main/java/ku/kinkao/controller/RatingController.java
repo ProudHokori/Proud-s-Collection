@@ -4,7 +4,7 @@ package ku.kinkao.controller;
 import jakarta.validation.Valid;
 import ku.kinkao.dto.RatingRequest;
 import ku.kinkao.service.BookService;
-import ku.kinkao.service.ReviewService;
+import ku.kinkao.service.RatingService;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,40 +19,40 @@ import java.util.UUID;
 
 @Controller
 @RequestMapping("/reviews")
-public class ReviewController {
+public class RatingController {
 
 
     @Autowired
-    private ReviewService reviewService;
+    private RatingService ratingService;
 
 
     @Autowired
-    private BookService restaurantService;
+    private BookService bookService;
 
 
-    @GetMapping("/show/{restaurantId}")
-    public String getReviewPage(@PathVariable UUID restaurantId,
+    @GetMapping("/show/{bookId}")
+    public String getReviewPage(@PathVariable UUID bookId,
                                 Model model) {
 
 
-        model.addAttribute("restaurant",
-                restaurantService.getOneBook(restaurantId));
+        model.addAttribute("book",
+                bookService.getOneBook(bookId));
 
 
-        return "review-restaurant";
+        return "review-book";
     }
 
 
-    @GetMapping("/add/{restaurantId}")
-    public String getReviewForm(@PathVariable UUID restaurantId,
+    @GetMapping("/add/{bookId}")
+    public String getReviewForm(@PathVariable UUID bookId,
                                 Model model) {
 
 
-        model.addAttribute("restaurantId", restaurantId);
-        model.addAttribute("reviewRequest", new RatingRequest());
+        model.addAttribute("bookId", bookId);
+        model.addAttribute("ratingRequest", new RatingRequest());
 
 
-        return "review-add";
+        return "rating-add";
     }
 
     @PostMapping("/add")
@@ -62,11 +62,11 @@ public class ReviewController {
 
         if (result.hasErrors()) {
             model.addAttribute("restaurantId", review.getBookId());
-            return "review-add";
+            return "rating-add";
         }
 
 
-        reviewService.createReview(review);
+        ratingService.createReview(review);
         return "redirect:/reviews/show/" + review.getBookId();
     }
 }

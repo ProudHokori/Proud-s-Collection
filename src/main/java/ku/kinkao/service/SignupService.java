@@ -3,7 +3,7 @@ package ku.kinkao.service;
 
 import ku.kinkao.dto.SignupRequest;
 import ku.kinkao.entity.User;
-import ku.kinkao.repository.MemberRepository;
+import ku.kinkao.repository.UserRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -20,7 +20,7 @@ public class SignupService {
 
 
     @Autowired
-    private MemberRepository repository;
+    private UserRepository repository;
 
 
     @Autowired

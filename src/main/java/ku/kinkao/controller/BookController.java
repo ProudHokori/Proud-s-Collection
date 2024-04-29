@@ -2,7 +2,7 @@ package ku.kinkao.controller;
 
 
 import jakarta.validation.Valid;
-import ku.kinkao.dto.RestaurantRequest;
+import ku.kinkao.dto.BookRequest;
 import ku.kinkao.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,27 +23,27 @@ public class BookController {
 
 
     @GetMapping
-    public String getAllRestaurantPage(Model model) {
-        model.addAttribute("restaurants", service.getAllBooks());
-        return "restaurant-all";
+    public String getAllBookPage(Model model) {
+        model.addAttribute("book", service.getAllBooks());
+        return "book-all";
     }
 
 
     @GetMapping("/add")
-    public String getRestaurantAddPage(Model model) {
-        model.addAttribute("restaurantRequest", new RestaurantRequest());
-        return "restaurant-add";
+    public String getBookAddPage(Model model) {
+        model.addAttribute("bookRequest", new BookRequest());
+        return "book-add";
     }
 
 
     @PostMapping("/add")
-    public String addRestaurant(@Valid RestaurantRequest request,
-                                BindingResult result, Model model) {
+    public String addBook(@Valid BookRequest request,
+                          BindingResult result, Model model) {
         if (result.hasErrors())
-            return "restaurant-add";
+            return "book-add";
 
 
         service.createBook(request);
-        return "redirect:/restaurants";
+        return "redirect:/books";
     }
 }

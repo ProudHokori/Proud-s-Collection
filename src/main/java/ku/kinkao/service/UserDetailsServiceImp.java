@@ -2,7 +2,7 @@ package ku.kinkao.service;
 
 
 import ku.kinkao.entity.User;
-import ku.kinkao.repository.MemberRepository;
+import ku.kinkao.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -20,7 +20,7 @@ public class UserDetailsServiceImp implements UserDetailsService {
 
 
     @Autowired
-    private MemberRepository memberRepository;
+    private UserRepository memberRepository;
 
 
     @Override
@@ -28,20 +28,20 @@ public class UserDetailsServiceImp implements UserDetailsService {
             throws UsernameNotFoundException {
 
 
-        User member = memberRepository.findByUsername(username);
+        User user = memberRepository.findByUsername(username);
 
 
-        if (member == null) {
+        if (user == null) {
             throw new UsernameNotFoundException("Could not find user");
         }
 
 
         List<SimpleGrantedAuthority> authorities = new ArrayList<>();
-        authorities.add(new SimpleGrantedAuthority(member.getRole()));
+        authorities.add(new SimpleGrantedAuthority(user.getRole().label));
 
 
         return new org.springframework.security.core.userdetails.User(
-                member.getUsername(), member.getPassword(),
+                user.getUsername(), user.getPassword(),
                 authorities);
     }
 }

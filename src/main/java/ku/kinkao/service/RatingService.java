@@ -15,7 +15,7 @@ import java.time.Instant;
 
 
 @Service
-public class ReviewService {
+public class RatingService {
 
 
     @Autowired

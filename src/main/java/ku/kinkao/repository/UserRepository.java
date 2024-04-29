@@ -7,8 +7,10 @@ import org.springframework.stereotype.Repository;
 import java.util.UUID;
 
 @Repository
-public interface MemberRepository extends JpaRepository<User,UUID> {
+public interface UserRepository extends JpaRepository<User,UUID> {
 
     // SELECT * FROM User WHERE username = ‘username’
     User findByUsername(String username);
+
+    // Maybe have one more role thing
 }
