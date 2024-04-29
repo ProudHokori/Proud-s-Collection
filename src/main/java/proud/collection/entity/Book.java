@@ -14,8 +14,8 @@ public class Book {
     @GeneratedValue
     private UUID id;
 
-    private String titleTH;
-    private String titleEN;
+    private String titleTh;
+    private String titleEh;
     private String author;
     private String publisher;
     private String isbn;

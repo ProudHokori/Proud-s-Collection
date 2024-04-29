@@ -1,7 +1,6 @@
 package proud.collection.entity;
 
 import jakarta.persistence.*;
-import proud.collection.enums.UserRole;
 import lombok.Data;
 
 import java.time.Instant;
@@ -16,9 +15,7 @@ public class Rating {
     private UUID id;
 
     private float score;
-
-    @Enumerated(EnumType.STRING)
-    private UserRole role;
+    private String role;
 
     @ManyToOne
     private Book book;

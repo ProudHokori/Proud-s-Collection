@@ -2,8 +2,7 @@ package proud.collection.service;
 
 
 import proud.collection.dto.SignupRequest;
-import proud.collection.entity.User;
-import proud.collection.enums.UserRole;
+import proud.collection.entity.Users;
 import proud.collection.repository.UserRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -34,9 +33,9 @@ public class SignupService {
 
 
     public void createMember(SignupRequest member) {
-        User newMember = modelMapper.map(member, User.class);
+        Users newMember = modelMapper.map(member, Users.class);
         newMember.setCreatedAt(Instant.now());
-        newMember.setRole(UserRole.USER);
+        newMember.setRole("USER");
 
 
         String hashedPassword = passwordEncoder.encode(member.getPassword());
@@ -49,7 +48,7 @@ public class SignupService {
     }
 
 
-    public User getMember(String username) {
+    public Users getMember(String username) {
         return repository.findByUsername(username);
     }
 }

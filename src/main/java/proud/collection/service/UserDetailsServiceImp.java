@@ -1,7 +1,7 @@
 package proud.collection.service;
 
 
-import proud.collection.entity.User;
+import proud.collection.entity.Users;
 import proud.collection.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -28,7 +28,7 @@ public class UserDetailsServiceImp implements UserDetailsService {
             throws UsernameNotFoundException {
 
 
-        User user = memberRepository.findByUsername(username);
+        Users user = memberRepository.findByUsername(username);
 
 
         if (user == null) {
@@ -37,7 +37,7 @@ public class UserDetailsServiceImp implements UserDetailsService {
 
 
         List<SimpleGrantedAuthority> authorities = new ArrayList<>();
-        authorities.add(new SimpleGrantedAuthority(user.getRole().label));
+        authorities.add(new SimpleGrantedAuthority(user.getRole()));
 
 
         return new org.springframework.security.core.userdetails.User(

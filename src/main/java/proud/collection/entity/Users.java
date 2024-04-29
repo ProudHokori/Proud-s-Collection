@@ -2,7 +2,6 @@ package proud.collection.entity;
 
 
 import jakarta.persistence.*;
-import proud.collection.enums.UserRole;
 import lombok.Data;
 
 
@@ -11,7 +10,7 @@ import java.util.UUID;
 
 @Data
 @Entity
-public class User {
+public class Users {
 
     @Id
     @GeneratedValue
@@ -20,8 +19,7 @@ public class User {
     private String username;
     private String password;
     private String email;
-    @Enumerated(EnumType.STRING)
-    private UserRole role;
+    private String role;
     private Instant createdAt;
 
 }
