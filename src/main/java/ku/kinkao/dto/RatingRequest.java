@@ -7,18 +7,13 @@ import java.util.UUID;
 
 
 @Data
-public class ReviewRequest {
-
-
-    @Min(1)
-    @Max(5)
-    private int rating;
-
+public class RatingRequest {
 
     @NotBlank
-    private String reviewText;
-
+    @Min(0)
+    @Max(5)
+    private float score;
 
     @NotNull
-    private UUID restaurantId;
+    private UUID bookId;
 }

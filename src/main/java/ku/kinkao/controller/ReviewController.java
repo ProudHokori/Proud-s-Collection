@@ -2,8 +2,8 @@ package ku.kinkao.controller;
 
 
 import jakarta.validation.Valid;
-import ku.kinkao.dto.ReviewRequest;
-import ku.kinkao.service.RestaurantService;
+import ku.kinkao.dto.RatingRequest;
+import ku.kinkao.service.BookService;
 import ku.kinkao.service.ReviewService;
 
 
@@ -27,7 +27,7 @@ public class ReviewController {
 
 
     @Autowired
-    private RestaurantService restaurantService;
+    private BookService restaurantService;
 
 
     @GetMapping("/show/{restaurantId}")
@@ -36,7 +36,7 @@ public class ReviewController {
 
 
         model.addAttribute("restaurant",
-                restaurantService.getOneRestaurant(restaurantId));
+                restaurantService.getOneBook(restaurantId));
 
 
         return "review-restaurant";
@@ -49,25 +49,25 @@ public class ReviewController {
 
 
         model.addAttribute("restaurantId", restaurantId);
-        model.addAttribute("reviewRequest", new ReviewRequest());
+        model.addAttribute("reviewRequest", new RatingRequest());
 
 
         return "review-add";
     }
 
     @PostMapping("/add")
-    public String createReview(@Valid ReviewRequest review,
+    public String createReview(@Valid RatingRequest review,
                                BindingResult result, Model model) {
 
 
         if (result.hasErrors()) {
-            model.addAttribute("restaurantId", review.getRestaurantId());
+            model.addAttribute("restaurantId", review.getBookId());
             return "review-add";
         }
 
 
         reviewService.createReview(review);
-        return "redirect:/reviews/show/" + review.getRestaurantId();
+        return "redirect:/reviews/show/" + review.getBookId();
     }
 }
 

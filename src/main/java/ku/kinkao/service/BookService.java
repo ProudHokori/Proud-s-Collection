@@ -2,7 +2,8 @@ package ku.kinkao.service;
 
 
 import ku.kinkao.dto.RestaurantRequest;
-import ku.kinkao.repository.RestaurantRepository;
+import ku.kinkao.entity.Book;
+import ku.kinkao.repository.BookRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,33 +16,32 @@ import java.util.UUID;
 
 
 @Service
-public class RestaurantService {
+public class BookService {
 
 
     @Autowired
-    private RestaurantRepository repository;
+    private BookRepository repository;
 
 
     @Autowired
     private ModelMapper modelMapper;
 
 
-    public List<Restaurant> getAllRestaurants() {
+    public List<Book> getAllBooks() {
         return repository.findAll();
     }
 
 
-    public Restaurant getOneRestaurant(UUID id) {
+    public Book getOneBook(UUID id) {
         if (repository.findById(id).isPresent())
             return repository.findById(id).get();
-        throw new NoSuchElementException("No restaurant with specified id");
+        throw new NoSuchElementException("No book with specified id");
     }
 
 
-    public void createRestaurant(RestaurantRequest request) {
-        Restaurant dao = modelMapper.map(request, Restaurant.class);
+    public void createBook(RestaurantRequest request) {
+        Book dao = modelMapper.map(request, Book.class);
         dao.setCreatedAt(Instant.now());
-
 
         repository.save(dao);
     }

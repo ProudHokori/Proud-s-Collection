@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import ku.kinkao.enums.UserRole;
 import lombok.Data;
 
+import java.time.Instant;
 import java.util.UUID;
 
 @Data
@@ -21,5 +22,7 @@ public class Rating {
 
     @ManyToOne
     private Book book;
+
+    private Instant createdAt;
 
 }

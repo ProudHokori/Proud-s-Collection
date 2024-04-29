@@ -1,9 +1,11 @@
 package ku.kinkao.service;
 
 
-import ku.kinkao.dto.ReviewRequest;
-import ku.kinkao.repository.RestaurantRepository;
-import ku.kinkao.repository.ReviewRepository;
+import ku.kinkao.dto.RatingRequest;
+import ku.kinkao.entity.Book;
+import ku.kinkao.entity.Rating;
+import ku.kinkao.repository.BookRepository;
+import ku.kinkao.repository.RatingRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,29 +19,29 @@ public class ReviewService {
 
 
     @Autowired
-    private ReviewRepository reviewRepository;
+    private RatingRepository ratingRepository;
 
 
     @Autowired
-    private RestaurantRepository restaurantRepository;
+    private BookRepository bookRepository;
 
 
     @Autowired
     private ModelMapper modelMapper;
 
 
-    public void createReview(ReviewRequest reviewRequest) {
-        Review review = modelMapper.map(reviewRequest, Review.class);
-        review.setCreatedAt(Instant.now());
+    public void createReview(RatingRequest ratingRequest) {
+        Rating rating = modelMapper.map(ratingRequest, Rating.class);
+        rating.setCreatedAt(Instant.now());
 
 
-        Restaurant restaurant =
-                restaurantRepository.findById(reviewRequest.getRestaurantId()).get();
+        Book book =
+                bookRepository.findById(ratingRequest.getBookId()).get();
 
 
-        review.setRestaurant(restaurant);
+        rating.setBook(book);
 
 
-        reviewRepository.save(review);
+        ratingRepository.save(rating);
     }
 }
