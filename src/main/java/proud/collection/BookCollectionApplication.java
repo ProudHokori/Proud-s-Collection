@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class KinkaoApplication {
+public class BookCollectionApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(KinkaoApplication.class, args);
+		SpringApplication.run(BookCollectionApplication.class, args);
 	}
 
 }

@@ -20,6 +20,9 @@ public class Book {
     private String publisher;
     private String isbn;
     private String category;
+    @Lob
+    private byte[] image;
+
     @OneToMany(mappedBy = "book")
     List<Rating> ratings;
 
