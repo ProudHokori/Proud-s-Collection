@@ -2,7 +2,6 @@ package ku.kinkao.service;
 
 
 import ku.kinkao.dto.RestaurantRequest;
-import ku.kinkao.entity.Restaurant;
 import ku.kinkao.repository.RestaurantRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;

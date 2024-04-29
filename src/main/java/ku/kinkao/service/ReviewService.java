@@ -2,7 +2,6 @@ package ku.kinkao.service;
 
 
 import ku.kinkao.dto.ReviewRequest;
-import ku.kinkao.entity.Restaurant;
 import ku.kinkao.repository.RestaurantRepository;
 import ku.kinkao.repository.ReviewRepository;
 import org.modelmapper.ModelMapper;
