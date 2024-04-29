@@ -1,14 +1,14 @@
 package ku.kinkao.repository;
 
-import ku.kinkao.entity.Member;
+import ku.kinkao.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.UUID;
 
 @Repository
-public interface MemberRepository extends JpaRepository<Member,UUID> {
+public interface MemberRepository extends JpaRepository<User,UUID> {
 
     // SELECT * FROM User WHERE username = ‘username’
-    Member findByUsername(String username);
+    User findByUsername(String username);
 }

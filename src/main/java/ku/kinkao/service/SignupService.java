@@ -2,7 +2,7 @@ package ku.kinkao.service;
 
 
 import ku.kinkao.dto.SignupRequest;
-import ku.kinkao.entity.Member;
+import ku.kinkao.entity.User;
 import ku.kinkao.repository.MemberRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -33,7 +33,7 @@ public class SignupService {
 
 
     public void createMember(SignupRequest member) {
-        Member newMember = modelMapper.map(member, Member.class);
+        User newMember = modelMapper.map(member, User.class);
         newMember.setCreatedAt(Instant.now());
         newMember.setRole("ROLE_USER");
 
@@ -48,7 +48,7 @@ public class SignupService {
     }
 
 
-    public Member getMember(String username) {
+    public User getMember(String username) {
         return repository.findByUsername(username);
     }
 }

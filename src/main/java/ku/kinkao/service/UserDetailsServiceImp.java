@@ -1,7 +1,7 @@
 package ku.kinkao.service;
 
 
-import ku.kinkao.entity.Member;
+import ku.kinkao.entity.User;
 import ku.kinkao.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -28,7 +28,7 @@ public class UserDetailsServiceImp implements UserDetailsService {
             throws UsernameNotFoundException {
 
 
-        Member member = memberRepository.findByUsername(username);
+        User member = memberRepository.findByUsername(username);
 
 
         if (member == null) {
