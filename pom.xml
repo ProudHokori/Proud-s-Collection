@@ -11,7 +11,7 @@
 	<groupId>proud</groupId>
 	<artifactId>collection</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>kinkao</name>
+	<name>Proud's Collection</name>
 	<description>Book Collection Web</description>
 	<properties>
 		<java.version>17</java.version>
@@ -81,6 +81,11 @@
 			<groupId>org.passay</groupId>
 			<artifactId>passay</artifactId>
 			<version>1.6.4</version>
+		</dependency>
+		<dependency>
+			<groupId>com.mysql</groupId>
+			<artifactId>mysql-connector-j</artifactId>
+			<scope>runtime</scope>
 		</dependency>
 	</dependencies>
 
