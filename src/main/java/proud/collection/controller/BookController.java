@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.io.IOException;
+import java.sql.SQLException;
+
 
 @Controller
 @RequestMapping("/book")
@@ -31,7 +34,6 @@ public class BookController {
 
     @GetMapping("/add")
     public String getBookAddPage(Model model) {
-        System.out.println("getBookAddPageeeeee");
         model.addAttribute("bookRequest", new BookRequest());
         return "book-add";
     }
@@ -39,7 +41,7 @@ public class BookController {
 
     @PostMapping("/add")
     public String addBook(@Valid BookRequest request,
-                          BindingResult result, Model model) {
+                          BindingResult result, Model model) throws IOException, SQLException {
         if (result.hasErrors())
             return "book-add";
 

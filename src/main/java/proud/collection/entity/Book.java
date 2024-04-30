@@ -3,6 +3,7 @@ package proud.collection.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.sql.Blob;
 import java.time.Instant;
 import java.util.List;
 import java.util.UUID;
@@ -19,7 +20,7 @@ public class Book {
     private String publisher;
     private String isbn;
     @Lob
-    private byte[] image;
+    private Blob image;
 
     @OneToMany(mappedBy = "book")
     List<Rating> ratings;

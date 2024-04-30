@@ -15,9 +15,16 @@
 
 
     <form th:action="@{/book/add}" method="POST"
-          th:object="${bookRequest}">
+          th:object="${bookRequest}" enctype="multipart/form-data">
 
+        <div class="mb-3">
+            <label for="inputImage">Image</label>
+            <input id="inputImage" type="file" th:field="*{image}" class="form-control" aria-label="Upload" aria-describedby="inputGroupFileAddon04">
+            <div class="alert alert-warning" th:if="${#fields.hasErrors('image')}"
+                 th:errors="*{image}"></div>
+            <img id="preview" src="#" alt="Preview Image" style="display: none; max-width: 100%; margin-top: 10px;">
 
+        </div>
         <div class="mb-3">
             <label for="inputNameTh">Th Name</label>
             <input id="inputNameTh" type="text" th:field="*{titleTh}" class="form-control">
@@ -26,7 +33,7 @@
         </div>
         <div class="mb-3">
             <label for="inputNameEn">En Name</label>
-            <input id="inputNameEn" type="text" th:field="*{titleEn}" class="form-control">
+            <input id="inputNameEn" type="text" th:field="*{titleEn}" class="form-control" >
             <div class="alert alert-warning" th:if="${#fields.hasErrors('titleEn')}"
                  th:errors="*{titleEn}"></div>
         </div>
@@ -66,5 +73,7 @@
         </button>
     </form>
 </div>
+<script th:src="@{/js/preview.js}">
+</script>
 </body>
 </html>

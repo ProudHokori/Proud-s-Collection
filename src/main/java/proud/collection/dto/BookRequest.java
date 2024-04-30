@@ -1,10 +1,12 @@
 package proud.collection.dto;
 
 
+import jakarta.persistence.Lob;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
+import org.springframework.web.multipart.MultipartFile;
 
 
 @Data
@@ -23,4 +25,5 @@ public class BookRequest {
     @Min(0)
     @Max(5)
     private float rating;
+    private MultipartFile image;
 }
