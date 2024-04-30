@@ -18,7 +18,7 @@ import java.util.UUID;
 
 
 @Controller
-@RequestMapping("/reviews")
+@RequestMapping("/rating")
 public class RatingController {
 
 
@@ -56,18 +56,18 @@ public class RatingController {
     }
 
     @PostMapping("/add")
-    public String createReview(@Valid RatingRequest review,
+    public String createReview(@Valid RatingRequest rating,
                                BindingResult result, Model model) {
 
 
         if (result.hasErrors()) {
-            model.addAttribute("restaurantId", review.getBookId());
+            model.addAttribute("bookId", rating.getBookId());
             return "rating-add";
         }
 
 
-        ratingService.createReview(review);
-        return "redirect:/reviews/show/" + review.getBookId();
+        ratingService.createReview(rating);
+        return "redirect:/rating/show/" + rating.getBookId();
     }
 }
 

@@ -17,20 +17,23 @@
     <table class="table table-bordered table-striped table-hover">
         <thead class="thead-dark">
         <tr style="text-align: center; vertical-align: top" class="table-primary">
-            <th>Name</th>
-            <th>Type</th>
-            <th>Address</th>
-            <th> </th>
+            <th>titleTH</th>
+            <th>titleEN</th>
+            <th>author</th>
+            <th>image</th>
+            <th>avgRating</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="restaurant : ${restaurants}" style="vertical-align: middle">
-            <td th:text="${restaurant.name}"></td>
-            <td th:text="${restaurant.type}"></td>
-            <td th:text="${restaurant.address}"></td>
+        <tr th:each="book : ${books}" style="vertical-align: middle">
+            <td th:text="${book.titleTH}"></td>
+            <td th:text="${book.titleEN}"></td>
+            <td th:text="${book.author}"></td>
+            <td th:text="${book.image}"></td>
+            <td th:text="${book.avgRating}"></td>
             <td style="text-align: center">
                 <a class="btn btn-primary"
-                   th:href="@{/reviews/show/{id}(id=${restaurant.id})}">Review</a>
+                   th:href="@{/rating/show/{id}(id=${book.id})}">Review</a>
             </td>
         </tr>
         </tbody>
