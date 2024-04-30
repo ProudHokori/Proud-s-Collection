@@ -11,31 +11,53 @@
 
 
 <div class="container w-50 p-3">
-    <h1 class="display-5">Add a Restaurant</h1>
+    <h1 class="display-5">Add a Book</h1>
 
 
-    <form th:action="@{/restaurants/add}" method="POST"
-          th:object="${restaurantRequest}">
+    <form th:action="@{/book/add}" method="POST"
+          th:object="${bookRequest}">
 
 
         <div class="mb-3">
-            <label for="inputName">Restaurant Name</label>
-            <input id="inputName" type="text" th:field="*{name}" class="form-control">
-            <div class="alert alert-warning" th:if="${#fields.hasErrors('name')}"
-                 th:errors="*{name}"></div>
+            <label for="inputNameTh">Th Name</label>
+            <input id="inputNameTh" type="text" th:field="*{titleTh}" class="form-control">
+            <div class="alert alert-warning" th:if="${#fields.hasErrors('titleTh')}"
+                 th:errors="*{titleTh}"></div>
         </div>
         <div class="mb-3">
-            <label for="inputType">Type</label>
-            <input id="inputType" type="text" th:field="*{type}" class="form-control">
-            <div class="alert alert-warning" th:if="${#fields.hasErrors('type')}"
-                 th:errors="*{type}"></div>
+            <label for="inputNameEn">En Name</label>
+            <input id="inputNameEn" type="text" th:field="*{titleEn}" class="form-control">
+            <div class="alert alert-warning" th:if="${#fields.hasErrors('titleEn')}"
+                 th:errors="*{titleEn}"></div>
         </div>
         <div class="mb-3">
-            <label for="inputAddress">Address</label>
-            <input id="inputAddress" type="text" th:field="*{address}"
+            <label for="inputAuthor">Author</label>
+            <input id="inputAuthor" type="text" th:field="*{author}"
                    class="form-control">
-            <div class="alert alert-warning" th:if="${#fields.hasErrors('address')}"
-                 th:errors="*{address}"></div>
+            <div class="alert alert-warning" th:if="${#fields.hasErrors('author')}"
+                 th:errors="*{author}"></div>
+        </div>
+        <div class="mb-3">
+            <label for="inputPublisher">Publisher</label>
+            <input id="inputPublisher" type="text" th:field="*{publisher}"
+                   class="form-control">
+            <div class="alert alert-warning" th:if="${#fields.hasErrors('publisher')}"
+                 th:errors="*{publisher}"></div>
+        </div>
+
+        <div class="mb-3">
+            <label for="inputIsbn">ISBN</label>
+            <input id="inputIsbn" type="text" th:field="*{isbn}"
+                   class="form-control">
+            <div class="alert alert-warning" th:if="${#fields.hasErrors('isbn')}"
+                 th:errors="*{isbn}"></div>
+        </div>
+        <div class="mb-3">
+            <label for="inputRating">Rating</label>
+            <input id="inputRating" type="text" th:field="*{rating}"
+                   class="form-control">
+            <div class="alert alert-warning" th:if="${#fields.hasErrors('rating')}"
+                 th:errors="*{rating}"></div>
         </div>
 
 

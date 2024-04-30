@@ -1,6 +1,8 @@
 package proud.collection.dto;
 
 
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
@@ -9,15 +11,16 @@ import lombok.Data;
 public class BookRequest {
 
     @NotBlank
-    private String titleTH;
+    private String titleTh;
     @NotBlank
-    private String titleEN;
+    private String titleEn;
     @NotBlank
     private String author;
     @NotBlank
     private String publisher;
     @NotBlank
     private String isbn;
-    @NotBlank
-    private String category;
+    @Min(0)
+    @Max(5)
+    private float rating;
 }

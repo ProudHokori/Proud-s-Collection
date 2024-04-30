@@ -13,13 +13,11 @@ public class Book {
     @Id
     @GeneratedValue
     private UUID id;
-
-    private String titleTH;
-    private String titleEN;
+    private String titleTh;
+    private String titleEn;
     private String author;
     private String publisher;
     private String isbn;
-    private String category;
     @Lob
     private byte[] image;
 

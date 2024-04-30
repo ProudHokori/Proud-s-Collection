@@ -31,6 +31,7 @@ public class BookController {
 
     @GetMapping("/add")
     public String getBookAddPage(Model model) {
+        System.out.println("getBookAddPageeeeee");
         model.addAttribute("bookRequest", new BookRequest());
         return "book-add";
     }

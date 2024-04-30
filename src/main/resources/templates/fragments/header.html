@@ -24,7 +24,7 @@
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/restaurants}">Restaurant</a>
                 </li>
-                <div sec:authorize="hasRole('ROLE_ADMIN')">
+                <div sec:authorize="hasRole('ADMIN')">
                     <li class="nav-item">
                         <a class="nav-link" th:href="@{/restaurants/add}">Add Restaurant</a>
                     </li>
