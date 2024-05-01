@@ -17,20 +17,21 @@
     <table class="table table-bordered table-striped table-hover">
         <thead class="thead-dark">
         <tr style="text-align: center; vertical-align: top" class="table-primary">
-            <th>titleTH</th>
-            <th>titleEN</th>
-            <th>author</th>
             <th>image</th>
+            <th>titleTh</th>
+            <th>titleEn</th>
+            <th>author</th>
             <th>avgRating</th>
+            <th>Review</th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="book : ${books}" style="vertical-align: middle">
-            <td th:text="${book.titleTH}"></td>
-            <td th:text="${book.titleEN}"></td>
+            <td><img height="250px"  th:src="@{${'/book/display?id=' + book.id}}" alt=""></td>
+            <td th:text="${book.titleTh}"></td>
+            <td th:text="${book.titleEn}"></td>
             <td th:text="${book.author}"></td>
-            <td th:text="${book.image}"></td>
-            <td th:text="${book.avgRating}"></td>
+            <td th:text="${averageRatings[book.id]}"></td>
             <td style="text-align: center">
                 <a class="btn btn-primary"
                    th:href="@{/rating/show/{id}(id=${book.id})}">Review</a>

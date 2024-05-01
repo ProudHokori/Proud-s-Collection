@@ -4,10 +4,12 @@ package proud.collection.service;
 import org.springframework.web.multipart.MultipartFile;
 import proud.collection.dto.BookRequest;
 import proud.collection.entity.Book;
+import proud.collection.entity.Rating;
 import proud.collection.repository.BookRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import proud.collection.repository.RatingRepository;
 
 
 import javax.sql.rowset.serial.SerialException;
@@ -27,6 +29,8 @@ public class BookService {
     @Autowired
     private BookRepository repository;
 
+    @Autowired
+    private RatingRepository ratingRepository;
 
     @Autowired
     private ModelMapper modelMapper;
@@ -52,5 +56,12 @@ public class BookService {
         dao.setCreatedAt(Instant.now());
         dao.setImage(blob);
         repository.save(dao);
+    }
+
+    public float getAverageRating(UUID bookId) {
+        List<Rating> ratings = ratingRepository.findAllByBookId(bookId);
+        if (ratings.isEmpty())
+            return 0;
+        return (float) ratings.stream().mapToDouble(Rating::getScore).average().getAsDouble();
     }
 }
