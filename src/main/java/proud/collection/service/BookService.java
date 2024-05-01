@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 import proud.collection.repository.RatingRepository;
 
 
-import javax.sql.rowset.serial.SerialException;
 import java.io.IOException;
 import java.sql.Blob;
 import java.sql.SQLException;
@@ -66,6 +65,7 @@ public class BookService {
     }
 
     public float getUserAverageRating(UUID bookId, String role) {
+//        List<Rating> ratings = ratingRepository.findAllByBookIdAndUsersRole(bookId, role);
         List<Rating> ratings = ratingRepository.findAllByBookIdAndRole(bookId, role);
         if (ratings.isEmpty())
             return 0;

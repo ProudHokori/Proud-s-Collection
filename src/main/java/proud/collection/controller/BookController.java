@@ -32,8 +32,10 @@ public class BookController {
     @GetMapping("/{id}")
     public String getBookDetailPage(@PathVariable("id") UUID id, Model model) {
         Book book = service.getOneBook(id);
+        System.out.println("book: " + book.getTitleEn());
         float userAverageRating = service.getUserAverageRating(id, "ROLE_USER");
         float adminAverageRating = service.getUserAverageRating(id, "ROLE_ADMIN");
+
         model.addAttribute("book", book);
         model.addAttribute("userAverageRating", userAverageRating);
         model.addAttribute("adminAverageRating", adminAverageRating);

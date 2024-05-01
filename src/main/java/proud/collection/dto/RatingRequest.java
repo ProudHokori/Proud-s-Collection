@@ -14,5 +14,8 @@ public class RatingRequest {
     private float score;
 
     @NotNull
+    private String userRole;
+
+    @NotNull
     private UUID bookId;
 }

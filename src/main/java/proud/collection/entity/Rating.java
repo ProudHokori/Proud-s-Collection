@@ -8,6 +8,7 @@ import java.util.UUID;
 
 @Data
 @Entity
+//@Table(uniqueConstraints = {@UniqueConstraint(columnNames = {"user_id", "book_id"})})
 public class Rating {
 
     @Id
@@ -15,10 +16,17 @@ public class Rating {
     private UUID id;
 
     private float score;
-    private String role;
+
+//    @ManyToOne
+//    @JoinColumn(name = "user_id")
+//    private Users user;
 
     @ManyToOne
     private Book book;
+
+    private String role;
+
+//    @JoinColumn(name = "book_id")
 
     private Instant createdAt;
 

@@ -1,5 +1,7 @@
+
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<html lang="en" xmlns:th="https://www.thymeleaf.org"  xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
 <head>
     <meta charset="UTF-8">
     <title>Review</title>
@@ -21,6 +23,8 @@
 
         <input type="hidden" name="bookId" th:value="${bookId}"
                id="bookId">
+        <input type="hidden" name="userRole" th:value="${userRole}"
+               id="userRole">
 
         <div class="mb-3">
             <label for="ratingInput">Rating (1 - 5)</label>
@@ -30,6 +34,7 @@
                  th:if="${#fields.hasErrors('score')}"
                  th:errors="*{score}"></div>
         </div>
+
         <button type="submit" class="btn btn-primary">Add Rating</button>
     </form>
 </div>

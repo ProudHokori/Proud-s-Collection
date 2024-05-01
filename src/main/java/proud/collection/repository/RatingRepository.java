@@ -1,7 +1,6 @@
 package proud.collection.repository;
 
 
-import org.springframework.data.jpa.repository.Query;
 import proud.collection.entity.Rating;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -16,6 +15,9 @@ public interface RatingRepository extends JpaRepository<Rating, UUID> {
 
     // SELECT * FROM Rating WHERE book_id = ‘bookId’
     List<Rating> findAllByBookId(UUID bookId);
-    @Query("SELECT r FROM Rating r WHERE r.book.id = :bookId AND r.role = :role")
+    // SELECT * FROM Rating WHERE book_id = ‘bookId’ AND role = ‘role’
+//    @Query("SELECT r FROM Rating r JOIN r.book b JOIN b.ratings ra JOIN ra.users u WHERE b.id = :bookId AND u.role = :userRole")
+//    List<Rating> findAllByBookIdAndUsersRole(UUID bookId, String userRole);
+
     List<Rating> findAllByBookIdAndRole(UUID bookId, String role);
 }

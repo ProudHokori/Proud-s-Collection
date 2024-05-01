@@ -2,6 +2,8 @@ package proud.collection.controller;
 
 
 import jakarta.validation.Valid;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import proud.collection.dto.RatingRequest;
 import proud.collection.service.BookService;
 import proud.collection.service.RatingService;
@@ -47,9 +49,11 @@ public class RatingController {
     public String getReviewForm(@PathVariable UUID bookId,
                                 Model model) {
 
-
         model.addAttribute("bookId", bookId);
         model.addAttribute("ratingRequest", new RatingRequest());
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String userRole = auth.getAuthorities().iterator().next().getAuthority();
+        model.addAttribute("userRole", userRole);
 
 
         return "rating-add";
