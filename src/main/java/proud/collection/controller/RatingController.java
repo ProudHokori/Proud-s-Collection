@@ -39,7 +39,7 @@ public class RatingController {
                 bookService.getOneBook(bookId));
 
 
-        return "review-book";
+        return "rating-book";
     }
 
 
@@ -59,6 +59,7 @@ public class RatingController {
     public String createReview(@Valid RatingRequest rating,
                                BindingResult result, Model model) {
 
+            System.out.println(result);
 
         if (result.hasErrors()) {
             model.addAttribute("bookId", rating.getBookId());

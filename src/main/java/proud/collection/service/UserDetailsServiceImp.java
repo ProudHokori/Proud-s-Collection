@@ -20,7 +20,7 @@ public class UserDetailsServiceImp implements UserDetailsService {
 
 
     @Autowired
-    private UserRepository memberRepository;
+    private UserRepository userRepository;
 
 
     @Override
@@ -28,7 +28,7 @@ public class UserDetailsServiceImp implements UserDetailsService {
             throws UsernameNotFoundException {
 
 
-        Users user = memberRepository.findByUsername(username);
+        Users user = userRepository.findByUsername(username);
 
 
         if (user == null) {

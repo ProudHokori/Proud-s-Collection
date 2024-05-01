@@ -70,8 +70,6 @@ public class BookController {
     @GetMapping("/display")
     public ResponseEntity<byte[]> displayImage(@RequestParam("id") UUID id) throws IOException, SQLException
     {
-        System.out.println("banananan" + id);
-
         Book book = service.getOneBook(id);
         byte [] imageBytes = null;
         imageBytes = book.getImage().getBytes(1,(int) book.getImage().length());
