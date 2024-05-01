@@ -64,4 +64,11 @@ public class BookService {
             return 0;
         return (float) ratings.stream().mapToDouble(Rating::getScore).average().getAsDouble();
     }
+
+    public float getUserAverageRating(UUID bookId, String role) {
+        List<Rating> ratings = ratingRepository.findAllByBookIdAndRole(bookId, role);
+        if (ratings.isEmpty())
+            return 0;
+        return (float) ratings.stream().mapToDouble(Rating::getScore).average().getAsDouble();
+    }
 }

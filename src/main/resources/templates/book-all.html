@@ -22,7 +22,7 @@
             <th>titleEn</th>
             <th>author</th>
             <th>avgRating</th>
-            <th>Review</th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
@@ -32,10 +32,11 @@
             <td th:text="${book.titleEn}"></td>
             <td th:text="${book.author}"></td>
             <td th:text="${averageRatings[book.id]}"></td>
-            <td style="text-align: center">
-                <a class="btn btn-primary"
-                   th:href="@{/rating/show/{id}(id=${book.id})}">Review</a>
-            </td>
+
+                        <td style="text-align: center">
+                            <a class="btn btn-primary"
+                               th:href="@{/book/{id}(id=${book.id})}">Detail</a>
+                        </td>
         </tr>
         </tbody>
     </table>

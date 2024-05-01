@@ -4,7 +4,7 @@ package proud.collection.controller;
 import jakarta.validation.Valid;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import proud.collection.dto.BookRequest;
 import proud.collection.entity.Book;
 import proud.collection.service.BookService;
@@ -12,9 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -32,8 +29,18 @@ public class BookController {
     @Autowired
     private BookService service;
 
+    @GetMapping("/{id}")
+    public String getBookDetailPage(@PathVariable("id") UUID id, Model model) {
+        Book book = service.getOneBook(id);
+        float userAverageRating = service.getUserAverageRating(id, "ROLE_USER");
+        float adminAverageRating = service.getUserAverageRating(id, "ROLE_ADMIN");
+        model.addAttribute("book", book);
+        model.addAttribute("userAverageRating", userAverageRating);
+        model.addAttribute("adminAverageRating", adminAverageRating);
+        return "book-detail";
+    }
 
-    @GetMapping
+    @GetMapping("/all")
     public String getAllBookPage(Model model) {
         List<Book> books = service.getAllBooks();
         Map<UUID, Float> averageRatings = new HashMap<>();
@@ -46,6 +53,7 @@ public class BookController {
 
         return "book-all";
     }
+
 
 
     @GetMapping("/add")
@@ -63,7 +71,7 @@ public class BookController {
 
 
         service.createBook(request);
-        return "redirect:/books";
+        return "redirect:/book/all";
     }
 
     // display image

@@ -40,7 +40,7 @@ public class SecurityConfig {
                         .requestMatchers(new AntPathRequestMatcher("/css/**")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/js/**")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/signup")).permitAll()
-                        // unauthenticated users can read restaurants and reviews.
+                        // unauthenticated users can read book and reviews.
                         .requestMatchers(
                                 new AntPathRequestMatcher("/book")).permitAll()
                         .requestMatchers(
