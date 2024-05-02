@@ -1,5 +1,6 @@
 package proud.collection.dto;
 
+import proud.collection.validation.PasswordMatches;
 import proud.collection.validation.ValidPassword;
 import lombok.Data;
 
@@ -9,7 +10,12 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 @Data
+@PasswordMatches
 public class SignupRequest {
+
+    @Email
+    @NotBlank
+    private String email;
 
     @NotBlank
     @Size(min = 4, message = "Username must have at least 4 characters")
@@ -20,16 +26,7 @@ public class SignupRequest {
     @Size(min = 12, max = 128, message = "Password must have at least 12 characters")
     private String password;
 
-
-    @NotBlank(message = "First name is required")
-    @Pattern(regexp = "^[a-zA-Z]+$",
-            message = "First name can only contain letters")
-    private String firstName;
-
     @NotBlank
-    private String lastName;
+    private String confirmPassword;
 
-    @Email
-    @NotBlank
-    private String email;
 }

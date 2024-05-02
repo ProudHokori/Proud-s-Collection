@@ -18,15 +18,11 @@
         </div>
 
         <div class="mb-3">
-            <label for="inputFirstName">First Name</label>
-            <input id="inputFirstName" type="text" th:field="*{firstName}" class="form-control">
-            <div class="alert alert-warning" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></div>
+            <label for="inputUsername">Username</label>
+            <input id="inputUsername" type="text" th:field="*{username}" class="form-control">
+            <div class="alert alert-warning" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>
         </div>
-        <div class="mb-3">
-            <label for="inputLastName">Last Name</label>
-            <input id="inputLastName" type="text" th:field="*{lastName}" class="form-control">
-            <div class="alert alert-warning" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></div>
-        </div>
+
         <div class="mb-3">
             <label for="inputEmail">Email</label>
             <input id="inputEmail" type="text" th:field="*{email}"
@@ -34,15 +30,18 @@
             <div class="alert alert-warning" th:if="${#fields.hasErrors('email')}"
                  th:errors="*{email}"></div>
         </div>
-        <div class="mb-3">
-            <label for="inputUsername">Username</label>
-            <input id="inputUsername" type="text" th:field="*{username}" class="form-control">
-            <div class="alert alert-warning" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>
-        </div>
+
         <div class="mb-3">
             <label for="inputPassword">Password</label>
             <input id="inputPassword" type="password" th:field="*{password}" class="form-control">
             <div class="alert alert-warning" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+        </div>
+
+        <div class="mb-3">
+            <label for="inputPasswordConfirm">Confirm Password</label>
+            <input id="inputPasswordConfirm" type="password" th:field="*{confirmPassword}" class="form-control">
+            <div class="alert alert-warning" th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}"></div>
+
         </div>
 
 
