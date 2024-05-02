@@ -2,6 +2,8 @@ package proud.collection.controller;
 
 
 import jakarta.validation.Valid;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import proud.collection.dto.RatingRequest;
 import proud.collection.service.BookService;
 import proud.collection.service.RatingService;
@@ -18,7 +20,7 @@ import java.util.UUID;
 
 
 @Controller
-@RequestMapping("/reviews")
+@RequestMapping("/rating")
 public class RatingController {
 
 
@@ -39,7 +41,7 @@ public class RatingController {
                 bookService.getOneBook(bookId));
 
 
-        return "review-book";
+        return "rating-book";
     }
 
 
@@ -47,27 +49,30 @@ public class RatingController {
     public String getReviewForm(@PathVariable UUID bookId,
                                 Model model) {
 
-
         model.addAttribute("bookId", bookId);
         model.addAttribute("ratingRequest", new RatingRequest());
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String userRole = auth.getAuthorities().iterator().next().getAuthority();
+        model.addAttribute("userRole", userRole);
 
 
         return "rating-add";
     }
 
     @PostMapping("/add")
-    public String createReview(@Valid RatingRequest review,
+    public String createReview(@Valid RatingRequest rating,
                                BindingResult result, Model model) {
 
+            System.out.println(result);
 
         if (result.hasErrors()) {
-            model.addAttribute("restaurantId", review.getBookId());
+            model.addAttribute("bookId", rating.getBookId());
             return "rating-add";
         }
 
 
-        ratingService.createReview(review);
-        return "redirect:/reviews/show/" + review.getBookId();
+        ratingService.createReview(rating);
+        return "redirect:/rating/show/" + rating.getBookId();
     }
 }
 

@@ -11,27 +11,32 @@
 
 
 <div class="container w-50 p-3">
-    <h1 class="display-6">Restaurants</h1>
+    <h1 class="display-6">Books</h1>
 
 
     <table class="table table-bordered table-striped table-hover">
         <thead class="thead-dark">
         <tr style="text-align: center; vertical-align: top" class="table-primary">
-            <th>Name</th>
-            <th>Type</th>
-            <th>Address</th>
-            <th> </th>
+            <th>image</th>
+            <th>titleTh</th>
+            <th>titleEn</th>
+            <th>author</th>
+            <th>avgRating</th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="restaurant : ${restaurants}" style="vertical-align: middle">
-            <td th:text="${restaurant.name}"></td>
-            <td th:text="${restaurant.type}"></td>
-            <td th:text="${restaurant.address}"></td>
-            <td style="text-align: center">
-                <a class="btn btn-primary"
-                   th:href="@{/reviews/show/{id}(id=${restaurant.id})}">Review</a>
-            </td>
+        <tr th:each="book : ${books}" style="vertical-align: middle">
+            <td><img height="250px"  th:src="@{${'/book/display?id=' + book.id}}" alt=""></td>
+            <td th:text="${book.titleTh}"></td>
+            <td th:text="${book.titleEn}"></td>
+            <td th:text="${book.author}"></td>
+            <td th:text="${averageRatings[book.id]}"></td>
+
+                        <td style="text-align: center">
+                            <a class="btn btn-primary"
+                               th:href="@{/book/{id}(id=${book.id})}">Detail</a>
+                        </td>
         </tr>
         </tbody>
     </table>

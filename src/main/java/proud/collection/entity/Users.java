@@ -6,6 +6,7 @@ import lombok.Data;
 
 
 import java.time.Instant;
+import java.util.List;
 import java.util.UUID;
 
 @Data
@@ -20,6 +21,8 @@ public class Users {
     private String password;
     private String email;
     private String role;
+//    @OneToMany(mappedBy = "user")
+//    private List<Rating> ratings;
     private Instant createdAt;
 
 }

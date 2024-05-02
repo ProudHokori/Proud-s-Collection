@@ -40,22 +40,22 @@ public class SecurityConfig {
                         .requestMatchers(new AntPathRequestMatcher("/css/**")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/js/**")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/signup")).permitAll()
-                        // unauthenticated users can read restaurants and reviews.
+                        // unauthenticated users can read book and reviews.
                         .requestMatchers(
-                                new AntPathRequestMatcher("/restaurants")).permitAll()
+                                new AntPathRequestMatcher("/book")).permitAll()
                         .requestMatchers(
-                                new AntPathRequestMatcher("/reviews/show/**")).permitAll()
+                                new AntPathRequestMatcher("/rating/show/**")).permitAll()
 
 
                         // members and admins can also add reviews
                         .requestMatchers(
-                                new AntPathRequestMatcher("/reviews/add/**"))
+                                new AntPathRequestMatcher("/rating/add/**"))
                         .hasAnyRole("USER", "ADMIN")
 
 
                         // admins can add restaurants
                         .requestMatchers(
-                                new AntPathRequestMatcher("/restaurants/add")).hasRole("ADMIN")
+                                new AntPathRequestMatcher("/book/add")).hasRole("ADMIN")
                         .anyRequest().authenticated()
                 ).formLogin((form) -> form
                         .loginPage("/login")

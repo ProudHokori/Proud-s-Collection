@@ -12,6 +12,8 @@ import org.springframework.stereotype.Service;
 
 
 import java.time.Instant;
+import java.util.List;
+import java.util.UUID;
 
 
 @Service
@@ -38,9 +40,7 @@ public class RatingService {
         Book book =
                 bookRepository.findById(ratingRequest.getBookId()).get();
 
-
         rating.setBook(book);
-
 
         ratingRepository.save(rating);
     }

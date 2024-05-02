@@ -35,7 +35,7 @@ public class SignupService {
     public void createMember(SignupRequest member) {
         Users newMember = modelMapper.map(member, Users.class);
         newMember.setCreatedAt(Instant.now());
-        newMember.setRole("USER");
+        newMember.setRole("ROLE_USER");
 
 
         String hashedPassword = passwordEncoder.encode(member.getPassword());
