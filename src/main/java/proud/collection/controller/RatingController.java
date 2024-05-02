@@ -5,7 +5,6 @@ import jakarta.validation.Valid;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import proud.collection.dto.RatingRequest;
-import proud.collection.service.BookService;
 import proud.collection.service.RatingService;
 
 
@@ -26,23 +25,6 @@ public class RatingController {
 
     @Autowired
     private RatingService ratingService;
-
-
-    @Autowired
-    private BookService bookService;
-
-
-    @GetMapping("/show/{bookId}")
-    public String getReviewPage(@PathVariable UUID bookId,
-                                Model model) {
-
-
-        model.addAttribute("book",
-                bookService.getOneBook(bookId));
-
-
-        return "rating-book";
-    }
 
 
     @GetMapping("/add/{bookId}")
