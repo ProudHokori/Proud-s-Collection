@@ -19,12 +19,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
+import java.util.logging.Logger;
 
 
 @Controller
 @RequestMapping("/book")
 public class BookController {
 
+    private static final Logger logger = Logger.getLogger(BookController.class.getName());
 
     @Autowired
     private BookService service;
@@ -73,6 +75,9 @@ public class BookController {
 
 
         service.createBook(request);
+
+        logger.info("Book name: " + request.getTitleTh() + "created successfully");
+
         return "redirect:/book/all";
     }
 

@@ -11,8 +11,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import jakarta.validation.Valid;
 
+import java.util.logging.Logger;
+
 @Controller
 public class SignupController {
+
+    private static final Logger logger = Logger.getLogger(SignupController.class.getName());
 
     @Autowired
     private SignupService signupService;
@@ -37,6 +41,8 @@ public class SignupController {
             model.addAttribute("signupError", "Username not available");
         }
         model.addAttribute("signupRequest", new SignupRequest());
+
+        logger.info("User signed up successfully");
         return "signup";
     }
 }

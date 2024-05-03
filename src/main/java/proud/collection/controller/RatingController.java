@@ -16,12 +16,14 @@ import org.springframework.web.bind.annotation.*;
 
 
 import java.util.UUID;
+import java.util.logging.Logger;
 
 
 @Controller
 @RequestMapping("/rating")
 public class RatingController {
 
+    private static final Logger logger = Logger.getLogger(RatingController.class.getName());
 
     @Autowired
     private RatingService ratingService;
@@ -54,6 +56,7 @@ public class RatingController {
 
 
         ratingService.createReview(rating);
+        logger.info("Review created successfully");
         return "redirect:/rating/show/" + rating.getBookId();
     }
 }
