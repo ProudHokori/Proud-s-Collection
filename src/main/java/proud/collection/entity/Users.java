@@ -21,8 +21,10 @@ public class Users {
     private String password;
     private String email;
     private String role;
-//    @OneToMany(mappedBy = "user")
-//    private List<Rating> ratings;
+
+    @OneToMany(mappedBy = "user")
+    private List<Rating> ratings;
+
     private Instant createdAt;
 
 }

@@ -47,7 +47,6 @@ public class RatingController {
     public String createReview(@Valid RatingRequest rating,
                                BindingResult result, Model model) {
 
-            System.out.println(result);
 
         if (result.hasErrors()) {
             model.addAttribute("bookId", rating.getBookId());
@@ -57,7 +56,7 @@ public class RatingController {
 
         ratingService.createReview(rating);
         logger.info("Review created successfully");
-        return "redirect:/rating/show/" + rating.getBookId();
+        return "redirect:/book/" + rating.getBookId();
     }
 }
 
