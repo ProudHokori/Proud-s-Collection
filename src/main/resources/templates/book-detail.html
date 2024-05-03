@@ -1,44 +1,61 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org"  xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Add Restaurant</title>
+    <title>Add Book</title>
     <link th:rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
     <script th:src="@{/js/bootstrap.min.js}"></script>
 </head>
 <body>
 <div th:insert="~{fragments/header :: header}"></div>
 
-
-<div class="container w-50 p-3">
-    <h1 class="display-5">Book Detail</h1>
-
-    <div class="mb-3">
-        <label for="Image">Image</label>
-        <img id="Image" th:src="@{${'/book/display?id=' + book.id}}" alt="">
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6" >
+                <div class="p-3 d-flex justify-content-center align-items-center" style="height: 100%">
+                    <div class="mb-3" >
+                        <div class="d-flex justify-content-center">
+                        <img id="Image" th:src="@{${'/book/display?id=' + book.id}}" alt="Image" style="max-width: 70%; margin-top: 10px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 border border-dark rounded">
+                <h3 class="display-5 mt-5 mx-4" id="titleTh" th:text="${book.titleTh}"></h3>
+                <div class="green p-3 mt-3 mx-2 w-80">
+                    <div class="mb-3">
+                        <p id="titleEn" th:text="${book.titleEn}"></p>
+                    </div>
+                    <div class="mb-3">
+                        <p id="avgUsrRating" th:text="${userAverageRating}"></p>
+                    </div>
+                    <div class="mb-3">
+                        Author: <p id="author" th:text="${book.author}"></p>
+                    </div>
+                    <div class="mb-3">
+                        <label for="publisher">Publisher:</label>
+                        <p id="publisher" th:text="${book.publisher}"></p>
+                    </div>
+            
+                    <div class="mb-3">
+                        <label for="isbn">ISBN:</label>
+                        <p id="isbn" th:text="${book.isbn}"></p>
+                    </div>
+                    <div class="mb-3">
+                        <label for="adminRating">Proud Rating</label>
+                        <p id="adminRating" th:text="${adminAverageRating}"></p>
+                    </div>
+                    <div class="mt-5 d-flex justify-content-center align-content-center:" sec:authorize="hasAnyRole('USER', 'ADMIN')">
+                        <a class="btn btn-primary" th:href="@{/rating/add/{id}(id=${book.id})}">Rating this Book</a>
+                    </div>
+                </div>
+            </div>
         </div>
-
-    <div class="mb-3">
-        <p id="titleTh" th:text="${book.titleTh}"></p>
-        <p id="titleEn" th:text="${book.titleEn}"></p>
-        <p id="avgUsrRating" th:text="${userAverageRating}"></p>
-        <label for="author">Author:</label>
-        <p id="author" th:text="${book.author}"></p>
-        <label for="publisher">Publisher:</label>
-        <p id="publisher" th:text="${book.publisher}"></p>
-        <label for="isbn">ISBN:</label>
-        <p id="isbn" th:text="${book.isbn}"></p>
-        <label for="adminRating">Proud Rating</label>
-        <p id="adminRating" th:text="${adminAverageRating}"></p>
-    </div>
-    <div class="mb-3">
     </div>
 
-    <div style="text-align: center" sec:authorize="hasAnyRole('USER', 'ADMIN')">
-        <a class="btn btn-primary" th:href="@{/rating/add/{id}(id=${book.id})}">Add Review</a>
-    </div>
 
-</div>
 
+<script th:src="@{/js/preview.js}">
+</script>
 </body>
 </html>

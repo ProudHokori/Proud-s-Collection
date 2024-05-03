@@ -15,19 +15,19 @@
     <div class="row row-cols-1 row-cols-md-2 g-4">
         <th:block th:each="book : ${books}">
             <div class="col">
-                <div class="p-4 bg-light rounded d-inline-flex" style="height: 90%; align-items: center;">
-                    <div style="max-width: 25%;">
-                        <a th:href="@{'/book/display?id=' + ${book.id}}">
+                <a th:href="@{/book/{id}(id=${book.id})}" class="text-decoration-none">
+                    <div class="p-4 bg-light rounded d-inline-flex text-black" style="height: 90%; align-items: center;">
+                        <div style="max-width: 25%;">
                             <img th:src="@{'/book/display?id=' + ${book.id}}" alt="Book Image" class="img-fluid rounded">
-                        </a>
+                        </div>
+                        <div class="ms-4">
+                            <p class="card-title mt-2"><span th:text="${book.titleTh}"></span></p>
+                            <p class="card-title mt-3"><span th:text="${book.titleEn}"></span></p>
+                            <p class="card-title mt-3">Author: <span th:text="${book.author}"></span></p>
+                            <p class="card-title mt-3">Average Rating: <span th:text="${averageRatings[book.id]}"></span></p>
+                        </div>
                     </div>
-                    <div class="ms-4">
-                        <p class="card-title mt-2"><span th:text="${book.titleTh}"></span></p>
-                        <p class="card-title mt-3"><span th:text="${book.titleEn}"></span></p>
-                        <p class="card-title mt-3">Author: <span th:text="${book.author}"></span></p>
-                        <p class="card-title mt-3">Average Rating: <span th:text="${averageRatings[book.id]}"></span></p>
-                    </div>
-                </div>
+                </a>
             </div>
         </th:block>
     </div>
