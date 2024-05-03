@@ -1,45 +1,39 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Restaurants</title>
-    <link th:rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
-    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./index.css">
+    <!-- Your custom CSS -->
 </head>
 <body>
 <div th:insert="~{fragments/header :: header}"></div>
 
+<main class="container py-4 mt-5">
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+        <th:block th:each="book : ${books}">
+            <div class="col">
+                <div class="p-4 bg-light rounded d-inline-flex" style="height: 90%; align-items: center;">
+                    <div style="max-width: 25%;">
+                        <a th:href="@{'/book/display?id=' + ${book.id}}">
+                            <img th:src="@{'/book/display?id=' + ${book.id}}" alt="Book Image" class="img-fluid rounded">
+                        </a>
+                    </div>
+                    <div class="ms-4">
+                        <p class="card-title mt-2"><span th:text="${book.titleTh}"></span></p>
+                        <p class="card-title mt-3"><span th:text="${book.titleEn}"></span></p>
+                        <p class="card-title mt-3">Author: <span th:text="${book.author}"></span></p>
+                        <p class="card-title mt-3">Average Rating: <span th:text="${averageRatings[book.id]}"></span></p>
+                    </div>
+                </div>
+            </div>
+        </th:block>
+    </div>
+</main>
 
-<div class="container w-50 p-3">
-    <h1 class="display-6">Books</h1>
-
-
-    <table class="table table-bordered table-striped table-hover">
-        <thead class="thead-dark">
-        <tr style="text-align: center; vertical-align: top" class="table-primary">
-            <th>image</th>
-            <th>titleTh</th>
-            <th>titleEn</th>
-            <th>author</th>
-            <th>avgRating</th>
-            <th></th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="book : ${books}" style="vertical-align: middle">
-            <td><img height="250px"  th:src="@{${'/book/display?id=' + book.id}}" alt=""></td>
-            <td th:text="${book.titleTh}"></td>
-            <td th:text="${book.titleEn}"></td>
-            <td th:text="${book.author}"></td>
-            <td th:text="${averageRatings[book.id]}"></td>
-
-                        <td style="text-align: center">
-                            <a class="btn btn-primary"
-                               th:href="@{/book/{id}(id=${book.id})}">Detail</a>
-                        </td>
-        </tr>
-        </tbody>
-    </table>
-</div>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
