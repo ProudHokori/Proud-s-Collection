@@ -25,6 +25,10 @@ public class Users {
     @OneToMany(mappedBy = "user")
     private List<Rating> ratings;
 
+
+    private boolean isEnabled;
+
+
     private Instant createdAt;
 
 }
