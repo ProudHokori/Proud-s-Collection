@@ -46,13 +46,10 @@ public class BookController {
     @GetMapping("/{id}")
     public String getBookDetailPage(@PathVariable("id") UUID id, Model model) {
         Book book = service.getOneBook(id);
-        System.out.println("book: " + book.getTitleEn());
         float userAverageRating = service.getUserAverageRating(id, "ROLE_USER");
         float adminAverageRating = service.getUserAverageRating(id, "ROLE_ADMIN");
         boolean userHasRated = hasUserRatedBook(id);
         float userRating = getUserRating(id);
-
-        System.out.println("userRating: " + userRating);
 
         model.addAttribute("book", book);
         model.addAttribute("userAverageRating", userAverageRating);
@@ -63,6 +60,7 @@ public class BookController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String userRole = auth.getAuthorities().iterator().next().getAuthority();
         model.addAttribute("userRole", userRole);
+        model.addAttribute("userHasVerified", usersRepository.findByUsername(auth.getName()).isEnabled());
 
         return "book-detail";
     }

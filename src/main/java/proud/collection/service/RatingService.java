@@ -41,7 +41,7 @@ public class RatingService {
 
     public void createReview(RatingRequest ratingRequest) {
 
-        UUID userId = getCurrentUserId(); // Implement a method to get the current user's ID
+        UUID userId = getCurrentUserId();
         UUID bookId = ratingRequest.getBookId();
         float score = ratingRequest.getScore();
 
@@ -63,6 +63,10 @@ public class RatingService {
             newRating.setBook(book);
 
             Users user = userRepository.findById(userId).orElseThrow(() -> new IllegalArgumentException("User not found"));
+
+            if(!user.isEnabled()){
+                throw new IllegalStateException("User is not verified yet Please check your email for verification link");
+            }
             newRating.setUser(user);
 
             newRating.setRole(ratingRequest.getUserRole());

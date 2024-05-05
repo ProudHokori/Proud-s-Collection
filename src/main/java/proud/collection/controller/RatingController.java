@@ -39,7 +39,6 @@ public class RatingController {
         String userRole = auth.getAuthorities().iterator().next().getAuthority();
         model.addAttribute("userRole", userRole);
 
-
         return "rating-add";
     }
 
@@ -52,8 +51,7 @@ public class RatingController {
             model.addAttribute("bookId", rating.getBookId());
             return "rating-add";
         }
-
-
+        
         ratingService.createReview(rating);
         logger.info("Review created successfully");
         return "redirect:/book/" + rating.getBookId();
