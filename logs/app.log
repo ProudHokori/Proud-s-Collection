@@ -303,3 +303,340 @@ jakarta.mail.AuthenticationFailedException: 535-5.7.8 Username and Password not 
 2024-05-05T09:14:55.460+07:00 DEBUG 75172 --- [http-nio-8090-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'text/html', given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7] and supported [text/plain, */*, application/json, application/*+json]
 2024-05-05T09:14:55.460+07:00 DEBUG 75172 --- [http-nio-8090-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing ["Email verified successfully!"]
 2024-05-05T09:14:55.461+07:00 DEBUG 75172 --- [http-nio-8090-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T11:28:15.911+07:00 DEBUG 83961 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 15 mappings in 'requestMappingHandlerMapping'
+2024-05-05T11:28:15.975+07:00 DEBUG 83961 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-05-05T11:28:16.021+07:00  WARN 83961 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/h2-console/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2024-05-05T11:28:16.075+07:00 DEBUG 83961 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-05-05T11:28:16.100+07:00 DEBUG 83961 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-05-05T11:28:27.375+07:00  INFO 83961 --- [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-05-05T11:28:27.376+07:00 DEBUG 83961 --- [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2024-05-05T11:28:27.376+07:00 DEBUG 83961 --- [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2024-05-05T11:28:27.376+07:00 DEBUG 83961 --- [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2024-05-05T11:28:27.379+07:00 DEBUG 83961 --- [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@43bf4e7a
+2024-05-05T11:28:27.380+07:00 DEBUG 83961 --- [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@5efdd582
+2024-05-05T11:28:27.380+07:00 DEBUG 83961 --- [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-05-05T11:28:27.380+07:00  INFO 83961 --- [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2024-05-05T11:28:27.462+07:00 DEBUG 83961 --- [http-nio-8090-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/login", parameters={}
+2024-05-05T11:28:27.465+07:00 DEBUG 83961 --- [http-nio-8090-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to proud.collection.controller.AuthController#loginView()
+2024-05-05T11:28:27.496+07:00 DEBUG 83961 --- [http-nio-8090-exec-2] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+2024-05-05T11:28:27.781+07:00 DEBUG 83961 --- [http-nio-8090-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T11:28:27.789+07:00 DEBUG 83961 --- [http-nio-8090-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/css/bootstrap.min.css", parameters={}
+2024-05-05T11:28:27.790+07:00 DEBUG 83961 --- [http-nio-8090-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-05-05T11:28:27.802+07:00 DEBUG 83961 --- [http-nio-8090-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T11:28:30.510+07:00 DEBUG 83961 --- [http-nio-8090-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/", parameters={}
+2024-05-05T11:28:30.511+07:00 DEBUG 83961 --- [http-nio-8090-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to proud.collection.controller.HomeController#redirectToAllBook()
+2024-05-05T11:28:30.512+07:00 DEBUG 83961 --- [http-nio-8090-exec-7] o.s.web.servlet.view.RedirectView        : View [RedirectView], model {}
+2024-05-05T11:28:30.513+07:00 DEBUG 83961 --- [http-nio-8090-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 302 FOUND
+2024-05-05T11:28:30.516+07:00 DEBUG 83961 --- [http-nio-8090-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/book/all", parameters={}
+2024-05-05T11:28:30.516+07:00 DEBUG 83961 --- [http-nio-8090-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to proud.collection.controller.BookController#getAllBookPage(Model)
+2024-05-05T11:28:30.557+07:00 DEBUG 83961 --- [http-nio-8090-exec-8] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+2024-05-05T11:28:30.573+07:00 DEBUG 83961 --- [http-nio-8090-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T11:28:30.584+07:00 DEBUG 83961 --- [http-nio-8090-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/css/bootstrap.min.css", parameters={}
+2024-05-05T11:28:30.584+07:00 DEBUG 83961 --- [http-nio-8090-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/js/bootstrap.min.js", parameters={}
+2024-05-05T11:28:30.585+07:00 DEBUG 83961 --- [http-nio-8090-exec-9] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-05-05T11:28:30.586+07:00 DEBUG 83961 --- [http-nio-8090-exec-10] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-05-05T11:28:30.586+07:00 DEBUG 83961 --- [http-nio-8090-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/book/display?id=eee588f3-b855-4370-bf36-fac21ce332b8", parameters={masked}
+2024-05-05T11:28:30.586+07:00 DEBUG 83961 --- [http-nio-8090-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to proud.collection.controller.BookController#displayImage(UUID)
+2024-05-05T11:28:30.586+07:00 DEBUG 83961 --- [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/book/display?id=48600fe6-a8e9-4ad3-b275-be98942b1a4c", parameters={masked}
+2024-05-05T11:28:30.587+07:00 DEBUG 83961 --- [http-nio-8090-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to proud.collection.controller.BookController#displayImage(UUID)
+2024-05-05T11:28:30.589+07:00 DEBUG 83961 --- [http-nio-8090-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T11:28:30.589+07:00 DEBUG 83961 --- [http-nio-8090-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T11:28:30.610+07:00 DEBUG 83961 --- [http-nio-8090-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Found 'Content-Type:image/jpeg' in response
+2024-05-05T11:28:30.610+07:00 DEBUG 83961 --- [http-nio-8090-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Found 'Content-Type:image/jpeg' in response
+2024-05-05T11:28:30.653+07:00 DEBUG 83961 --- [http-nio-8090-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{-119, 80, 78, 71, 13, 10, 26, 10, 0, 0, 0, 13, 73, 72, 68, 82, 0, 0, 1, 46, 0, 0, 1, 98, 8, 6, 0, 0 (truncated)...]
+2024-05-05T11:28:30.657+07:00 DEBUG 83961 --- [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T11:28:30.658+07:00 DEBUG 83961 --- [http-nio-8090-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{-119, 80, 78, 71, 13, 10, 26, 10, 0, 0, 0, 13, 73, 72, 68, 82, 0, 0, 1, 97, 0, 0, 1, 102, 8, 6, 0,  (truncated)...]
+2024-05-05T11:28:30.660+07:00 DEBUG 83961 --- [http-nio-8090-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T11:28:33.256+07:00 DEBUG 83961 --- [http-nio-8090-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/book/48600fe6-a8e9-4ad3-b275-be98942b1a4c", parameters={}
+2024-05-05T11:28:33.258+07:00 DEBUG 83961 --- [http-nio-8090-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to proud.collection.controller.BookController#getBookDetailPage(UUID, Model)
+2024-05-05T11:28:33.327+07:00 DEBUG 83961 --- [http-nio-8090-exec-3] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+2024-05-05T11:28:33.360+07:00 DEBUG 83961 --- [http-nio-8090-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T11:28:33.370+07:00 DEBUG 83961 --- [http-nio-8090-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/js/bootstrap.min.js", parameters={}
+2024-05-05T11:28:33.371+07:00 DEBUG 83961 --- [http-nio-8090-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/book/display?id=48600fe6-a8e9-4ad3-b275-be98942b1a4c", parameters={masked}
+2024-05-05T11:28:33.371+07:00 DEBUG 83961 --- [http-nio-8090-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/css/bootstrap.min.css", parameters={}
+2024-05-05T11:28:33.371+07:00 DEBUG 83961 --- [http-nio-8090-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to proud.collection.controller.BookController#displayImage(UUID)
+2024-05-05T11:28:33.371+07:00 DEBUG 83961 --- [http-nio-8090-exec-6] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-05-05T11:28:33.372+07:00 DEBUG 83961 --- [http-nio-8090-exec-4] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-05-05T11:28:33.374+07:00 DEBUG 83961 --- [http-nio-8090-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T11:28:33.376+07:00 DEBUG 83961 --- [http-nio-8090-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T11:28:33.380+07:00 DEBUG 83961 --- [http-nio-8090-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Found 'Content-Type:image/jpeg' in response
+2024-05-05T11:28:33.425+07:00 DEBUG 83961 --- [http-nio-8090-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{-119, 80, 78, 71, 13, 10, 26, 10, 0, 0, 0, 13, 73, 72, 68, 82, 0, 0, 1, 46, 0, 0, 1, 98, 8, 6, 0, 0 (truncated)...]
+2024-05-05T11:28:33.427+07:00 DEBUG 83961 --- [http-nio-8090-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T11:28:38.162+07:00 DEBUG 83961 --- [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : POST "/rating/add", parameters={masked}
+2024-05-05T11:28:38.164+07:00 DEBUG 83961 --- [http-nio-8090-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to proud.collection.controller.RatingController#createReview(RatingRequest, BindingResult, Model)
+2024-05-05T11:28:38.326+07:00 DEBUG 83961 --- [http-nio-8090-exec-1] o.s.web.servlet.view.RedirectView        : View name 'redirect:', model {}
+2024-05-05T11:28:38.326+07:00 DEBUG 83961 --- [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 302 FOUND
+2024-05-05T11:28:38.332+07:00 DEBUG 83961 --- [http-nio-8090-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/book/48600fe6-a8e9-4ad3-b275-be98942b1a4c", parameters={}
+2024-05-05T11:28:38.332+07:00 DEBUG 83961 --- [http-nio-8090-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to proud.collection.controller.BookController#getBookDetailPage(UUID, Model)
+2024-05-05T11:28:38.356+07:00 DEBUG 83961 --- [http-nio-8090-exec-2] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+2024-05-05T11:28:38.363+07:00 DEBUG 83961 --- [http-nio-8090-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T11:28:38.374+07:00 DEBUG 83961 --- [http-nio-8090-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/css/bootstrap.min.css", parameters={}
+2024-05-05T11:28:38.374+07:00 DEBUG 83961 --- [http-nio-8090-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/book/display?id=48600fe6-a8e9-4ad3-b275-be98942b1a4c", parameters={masked}
+2024-05-05T11:28:38.375+07:00 DEBUG 83961 --- [http-nio-8090-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to proud.collection.controller.BookController#displayImage(UUID)
+2024-05-05T11:28:38.376+07:00 DEBUG 83961 --- [http-nio-8090-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-05-05T11:28:38.377+07:00 DEBUG 83961 --- [http-nio-8090-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/js/bootstrap.min.js", parameters={}
+2024-05-05T11:28:38.377+07:00 DEBUG 83961 --- [http-nio-8090-exec-6] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-05-05T11:28:38.379+07:00 DEBUG 83961 --- [http-nio-8090-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T11:28:38.379+07:00 DEBUG 83961 --- [http-nio-8090-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T11:28:38.383+07:00 DEBUG 83961 --- [http-nio-8090-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Found 'Content-Type:image/jpeg' in response
+2024-05-05T11:28:38.418+07:00 DEBUG 83961 --- [http-nio-8090-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{-119, 80, 78, 71, 13, 10, 26, 10, 0, 0, 0, 13, 73, 72, 68, 82, 0, 0, 1, 46, 0, 0, 1, 98, 8, 6, 0, 0 (truncated)...]
+2024-05-05T11:28:38.420+07:00 DEBUG 83961 --- [http-nio-8090-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T11:29:05.085+07:00 DEBUG 83961 --- [http-nio-8090-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/book/48600fe6-a8e9-4ad3-b275-be98942b1a4c", parameters={}
+2024-05-05T11:29:05.088+07:00 DEBUG 83961 --- [http-nio-8090-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to proud.collection.controller.BookController#getBookDetailPage(UUID, Model)
+2024-05-05T11:29:05.153+07:00 DEBUG 83961 --- [http-nio-8090-exec-7] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+2024-05-05T11:29:05.177+07:00 DEBUG 83961 --- [http-nio-8090-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T11:29:05.183+07:00 DEBUG 83961 --- [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/js/bootstrap.min.js", parameters={}
+2024-05-05T11:29:05.184+07:00 DEBUG 83961 --- [http-nio-8090-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/book/display?id=48600fe6-a8e9-4ad3-b275-be98942b1a4c", parameters={masked}
+2024-05-05T11:29:05.184+07:00 DEBUG 83961 --- [http-nio-8090-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/css/bootstrap.min.css", parameters={}
+2024-05-05T11:29:05.184+07:00 DEBUG 83961 --- [http-nio-8090-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to proud.collection.controller.BookController#displayImage(UUID)
+2024-05-05T11:29:05.184+07:00 DEBUG 83961 --- [http-nio-8090-exec-1] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-05-05T11:29:05.185+07:00 DEBUG 83961 --- [http-nio-8090-exec-9] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-05-05T11:29:05.189+07:00 DEBUG 83961 --- [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T11:29:05.190+07:00 DEBUG 83961 --- [http-nio-8090-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T11:29:05.192+07:00 DEBUG 83961 --- [http-nio-8090-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Found 'Content-Type:image/jpeg' in response
+2024-05-05T11:29:05.214+07:00 DEBUG 83961 --- [http-nio-8090-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{-119, 80, 78, 71, 13, 10, 26, 10, 0, 0, 0, 13, 73, 72, 68, 82, 0, 0, 1, 46, 0, 0, 1, 98, 8, 6, 0, 0 (truncated)...]
+2024-05-05T11:29:05.216+07:00 DEBUG 83961 --- [http-nio-8090-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T11:29:10.095+07:00 DEBUG 83961 --- [http-nio-8090-exec-5] o.s.web.servlet.DispatcherServlet        : POST "/rating/add", parameters={masked}
+2024-05-05T11:29:10.095+07:00 DEBUG 83961 --- [http-nio-8090-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to proud.collection.controller.RatingController#createReview(RatingRequest, BindingResult, Model)
+2024-05-05T11:29:10.132+07:00 DEBUG 83961 --- [http-nio-8090-exec-5] o.s.web.servlet.view.RedirectView        : View name 'redirect:', model {}
+2024-05-05T11:29:10.133+07:00 DEBUG 83961 --- [http-nio-8090-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 302 FOUND
+2024-05-05T11:29:10.137+07:00 DEBUG 83961 --- [http-nio-8090-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/book/48600fe6-a8e9-4ad3-b275-be98942b1a4c", parameters={}
+2024-05-05T11:29:10.137+07:00 DEBUG 83961 --- [http-nio-8090-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to proud.collection.controller.BookController#getBookDetailPage(UUID, Model)
+2024-05-05T11:29:10.158+07:00 DEBUG 83961 --- [http-nio-8090-exec-8] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+2024-05-05T11:29:10.165+07:00 DEBUG 83961 --- [http-nio-8090-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T11:29:10.173+07:00 DEBUG 83961 --- [http-nio-8090-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/js/bootstrap.min.js", parameters={}
+2024-05-05T11:29:10.173+07:00 DEBUG 83961 --- [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/book/display?id=48600fe6-a8e9-4ad3-b275-be98942b1a4c", parameters={masked}
+2024-05-05T11:29:10.173+07:00 DEBUG 83961 --- [http-nio-8090-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/css/bootstrap.min.css", parameters={}
+2024-05-05T11:29:10.173+07:00 DEBUG 83961 --- [http-nio-8090-exec-7] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-05-05T11:29:10.173+07:00 DEBUG 83961 --- [http-nio-8090-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to proud.collection.controller.BookController#displayImage(UUID)
+2024-05-05T11:29:10.174+07:00 DEBUG 83961 --- [http-nio-8090-exec-10] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-05-05T11:29:10.175+07:00 DEBUG 83961 --- [http-nio-8090-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T11:29:10.177+07:00 DEBUG 83961 --- [http-nio-8090-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T11:29:10.179+07:00 DEBUG 83961 --- [http-nio-8090-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Found 'Content-Type:image/jpeg' in response
+2024-05-05T11:29:10.201+07:00 DEBUG 83961 --- [http-nio-8090-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{-119, 80, 78, 71, 13, 10, 26, 10, 0, 0, 0, 13, 73, 72, 68, 82, 0, 0, 1, 46, 0, 0, 1, 98, 8, 6, 0, 0 (truncated)...]
+2024-05-05T11:29:10.202+07:00 DEBUG 83961 --- [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T11:29:17.995+07:00 DEBUG 83961 --- [http-nio-8090-exec-4] o.s.web.servlet.DispatcherServlet        : POST "/rating/add", parameters={masked}
+2024-05-05T11:29:17.997+07:00 DEBUG 83961 --- [http-nio-8090-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to proud.collection.controller.RatingController#createReview(RatingRequest, BindingResult, Model)
+2024-05-05T11:29:18.043+07:00 DEBUG 83961 --- [http-nio-8090-exec-4] o.s.web.servlet.view.RedirectView        : View name 'redirect:', model {}
+2024-05-05T11:29:18.044+07:00 DEBUG 83961 --- [http-nio-8090-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 302 FOUND
+2024-05-05T11:29:18.048+07:00 DEBUG 83961 --- [http-nio-8090-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/book/48600fe6-a8e9-4ad3-b275-be98942b1a4c", parameters={}
+2024-05-05T11:29:18.049+07:00 DEBUG 83961 --- [http-nio-8090-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to proud.collection.controller.BookController#getBookDetailPage(UUID, Model)
+2024-05-05T11:29:18.071+07:00 DEBUG 83961 --- [http-nio-8090-exec-3] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+2024-05-05T11:29:18.080+07:00 DEBUG 83961 --- [http-nio-8090-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T11:29:18.087+07:00 DEBUG 83961 --- [http-nio-8090-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/css/bootstrap.min.css", parameters={}
+2024-05-05T11:29:18.087+07:00 DEBUG 83961 --- [http-nio-8090-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/js/bootstrap.min.js", parameters={}
+2024-05-05T11:29:18.088+07:00 DEBUG 83961 --- [http-nio-8090-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/book/display?id=48600fe6-a8e9-4ad3-b275-be98942b1a4c", parameters={masked}
+2024-05-05T11:29:18.088+07:00 DEBUG 83961 --- [http-nio-8090-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to proud.collection.controller.BookController#displayImage(UUID)
+2024-05-05T11:29:18.088+07:00 DEBUG 83961 --- [http-nio-8090-exec-5] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-05-05T11:29:18.089+07:00 DEBUG 83961 --- [http-nio-8090-exec-8] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-05-05T11:29:18.092+07:00 DEBUG 83961 --- [http-nio-8090-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T11:29:18.093+07:00 DEBUG 83961 --- [http-nio-8090-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T11:29:18.096+07:00 DEBUG 83961 --- [http-nio-8090-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Found 'Content-Type:image/jpeg' in response
+2024-05-05T11:29:18.132+07:00 DEBUG 83961 --- [http-nio-8090-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{-119, 80, 78, 71, 13, 10, 26, 10, 0, 0, 0, 13, 73, 72, 68, 82, 0, 0, 1, 46, 0, 0, 1, 98, 8, 6, 0, 0 (truncated)...]
+2024-05-05T11:29:18.133+07:00 DEBUG 83961 --- [http-nio-8090-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T11:29:35.899+07:00 DEBUG 83961 --- [http-nio-8090-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/user/confirm-account?token=46a3a0c0-4cbc-4243-9ed5-c79619b3a21c", parameters={masked}
+2024-05-05T11:29:35.901+07:00 DEBUG 83961 --- [http-nio-8090-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to proud.collection.controller.UserController#confirmUserAccount(String)
+2024-05-05T11:29:35.962+07:00 DEBUG 83961 --- [http-nio-8090-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'text/html', given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7] and supported [text/plain, */*, application/json, application/*+json]
+2024-05-05T11:29:35.963+07:00 DEBUG 83961 --- [http-nio-8090-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing ["Email verified successfully!"]
+2024-05-05T11:29:35.964+07:00 DEBUG 83961 --- [http-nio-8090-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T11:47:48.498+07:00  WARN 83961 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4m4s126ms).
+2024-05-05T11:58:50.452+07:00 DEBUG 86397 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 15 mappings in 'requestMappingHandlerMapping'
+2024-05-05T11:58:50.508+07:00 DEBUG 86397 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-05-05T11:58:50.554+07:00  WARN 86397 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/h2-console/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2024-05-05T11:58:50.601+07:00 DEBUG 86397 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-05-05T11:58:50.632+07:00 DEBUG 86397 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-05-05T12:05:05.143+07:00  INFO 86397 --- [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-05-05T12:05:05.145+07:00 DEBUG 86397 --- [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2024-05-05T12:05:05.145+07:00 DEBUG 86397 --- [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2024-05-05T12:05:05.145+07:00 DEBUG 86397 --- [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2024-05-05T12:05:05.148+07:00 DEBUG 86397 --- [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@629a0873
+2024-05-05T12:05:05.148+07:00 DEBUG 86397 --- [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@44208ad4
+2024-05-05T12:05:05.148+07:00 DEBUG 86397 --- [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-05-05T12:05:05.148+07:00  INFO 86397 --- [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2024-05-05T12:05:05.172+07:00 DEBUG 86397 --- [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/", parameters={}
+2024-05-05T12:05:05.174+07:00 DEBUG 86397 --- [http-nio-8090-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to proud.collection.controller.HomeController#redirectToAllBook()
+2024-05-05T12:05:05.189+07:00 DEBUG 86397 --- [http-nio-8090-exec-1] o.s.web.servlet.view.RedirectView        : View [RedirectView], model {}
+2024-05-05T12:05:05.190+07:00 DEBUG 86397 --- [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 302 FOUND
+2024-05-05T12:05:05.213+07:00 DEBUG 86397 --- [http-nio-8090-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/login", parameters={}
+2024-05-05T12:05:05.213+07:00 DEBUG 86397 --- [http-nio-8090-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to proud.collection.controller.AuthController#loginView()
+2024-05-05T12:05:05.221+07:00 DEBUG 86397 --- [http-nio-8090-exec-3] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+2024-05-05T12:05:05.485+07:00 DEBUG 86397 --- [http-nio-8090-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T12:05:05.498+07:00 DEBUG 86397 --- [http-nio-8090-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/css/bootstrap.min.css", parameters={}
+2024-05-05T12:05:05.500+07:00 DEBUG 86397 --- [http-nio-8090-exec-4] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-05-05T12:05:05.515+07:00 DEBUG 86397 --- [http-nio-8090-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T12:05:06.327+07:00 DEBUG 86397 --- [http-nio-8090-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/", parameters={}
+2024-05-05T12:05:06.329+07:00 DEBUG 86397 --- [http-nio-8090-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to proud.collection.controller.HomeController#redirectToAllBook()
+2024-05-05T12:05:06.330+07:00 DEBUG 86397 --- [http-nio-8090-exec-5] o.s.web.servlet.view.RedirectView        : View [RedirectView], model {}
+2024-05-05T12:05:06.331+07:00 DEBUG 86397 --- [http-nio-8090-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 302 FOUND
+2024-05-05T12:05:06.348+07:00 DEBUG 86397 --- [http-nio-8090-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/login", parameters={}
+2024-05-05T12:05:06.349+07:00 DEBUG 86397 --- [http-nio-8090-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to proud.collection.controller.AuthController#loginView()
+2024-05-05T12:05:06.351+07:00 DEBUG 86397 --- [http-nio-8090-exec-7] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+2024-05-05T12:05:06.366+07:00 DEBUG 86397 --- [http-nio-8090-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T12:05:06.373+07:00 DEBUG 86397 --- [http-nio-8090-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/css/bootstrap.min.css", parameters={}
+2024-05-05T12:05:06.374+07:00 DEBUG 86397 --- [http-nio-8090-exec-8] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-05-05T12:05:06.378+07:00 DEBUG 86397 --- [http-nio-8090-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T12:05:08.831+07:00 DEBUG 86397 --- [http-nio-8090-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/", parameters={}
+2024-05-05T12:05:08.832+07:00 DEBUG 86397 --- [http-nio-8090-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to proud.collection.controller.HomeController#redirectToAllBook()
+2024-05-05T12:05:08.832+07:00 DEBUG 86397 --- [http-nio-8090-exec-10] o.s.web.servlet.view.RedirectView        : View [RedirectView], model {}
+2024-05-05T12:05:08.832+07:00 DEBUG 86397 --- [http-nio-8090-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 302 FOUND
+2024-05-05T12:05:08.837+07:00 DEBUG 86397 --- [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/book/all", parameters={}
+2024-05-05T12:05:08.838+07:00 DEBUG 86397 --- [http-nio-8090-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to proud.collection.controller.BookController#getAllBookPage(Model)
+2024-05-05T12:05:08.880+07:00 DEBUG 86397 --- [http-nio-8090-exec-1] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+2024-05-05T12:05:08.894+07:00 DEBUG 86397 --- [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T12:05:08.903+07:00 DEBUG 86397 --- [http-nio-8090-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/css/bootstrap.min.css", parameters={}
+2024-05-05T12:05:08.904+07:00 DEBUG 86397 --- [http-nio-8090-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/js/bootstrap.min.js", parameters={}
+2024-05-05T12:05:08.905+07:00 DEBUG 86397 --- [http-nio-8090-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-05-05T12:05:08.905+07:00 DEBUG 86397 --- [http-nio-8090-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-05-05T12:05:08.910+07:00 DEBUG 86397 --- [http-nio-8090-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T12:05:08.910+07:00 DEBUG 86397 --- [http-nio-8090-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T12:05:08.911+07:00 DEBUG 86397 --- [http-nio-8090-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/book/display?id=48600fe6-a8e9-4ad3-b275-be98942b1a4c", parameters={masked}
+2024-05-05T12:05:08.911+07:00 DEBUG 86397 --- [http-nio-8090-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/book/display?id=eee588f3-b855-4370-bf36-fac21ce332b8", parameters={masked}
+2024-05-05T12:05:08.912+07:00 DEBUG 86397 --- [http-nio-8090-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to proud.collection.controller.BookController#displayImage(UUID)
+2024-05-05T12:05:08.912+07:00 DEBUG 86397 --- [http-nio-8090-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to proud.collection.controller.BookController#displayImage(UUID)
+2024-05-05T12:05:08.939+07:00 DEBUG 86397 --- [http-nio-8090-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Found 'Content-Type:image/jpeg' in response
+2024-05-05T12:05:08.939+07:00 DEBUG 86397 --- [http-nio-8090-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Found 'Content-Type:image/jpeg' in response
+2024-05-05T12:05:08.973+07:00 DEBUG 86397 --- [http-nio-8090-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{-119, 80, 78, 71, 13, 10, 26, 10, 0, 0, 0, 13, 73, 72, 68, 82, 0, 0, 1, 46, 0, 0, 1, 98, 8, 6, 0, 0 (truncated)...]
+2024-05-05T12:05:08.976+07:00 DEBUG 86397 --- [http-nio-8090-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T12:05:08.977+07:00 DEBUG 86397 --- [http-nio-8090-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{-119, 80, 78, 71, 13, 10, 26, 10, 0, 0, 0, 13, 73, 72, 68, 82, 0, 0, 1, 97, 0, 0, 1, 102, 8, 6, 0,  (truncated)...]
+2024-05-05T12:05:08.979+07:00 DEBUG 86397 --- [http-nio-8090-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T12:05:11.413+07:00 DEBUG 86397 --- [http-nio-8090-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/book/48600fe6-a8e9-4ad3-b275-be98942b1a4c", parameters={}
+2024-05-05T12:05:11.414+07:00 DEBUG 86397 --- [http-nio-8090-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to proud.collection.controller.BookController#getBookDetailPage(UUID, Model)
+2024-05-05T12:05:11.468+07:00 DEBUG 86397 --- [http-nio-8090-exec-6] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+2024-05-05T12:05:11.502+07:00 DEBUG 86397 --- [http-nio-8090-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T12:05:11.510+07:00 DEBUG 86397 --- [http-nio-8090-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/js/bootstrap.min.js", parameters={}
+2024-05-05T12:05:11.510+07:00 DEBUG 86397 --- [http-nio-8090-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/book/display?id=48600fe6-a8e9-4ad3-b275-be98942b1a4c", parameters={masked}
+2024-05-05T12:05:11.510+07:00 DEBUG 86397 --- [http-nio-8090-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/css/bootstrap.min.css", parameters={}
+2024-05-05T12:05:11.510+07:00 DEBUG 86397 --- [http-nio-8090-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to proud.collection.controller.BookController#displayImage(UUID)
+2024-05-05T12:05:11.510+07:00 DEBUG 86397 --- [http-nio-8090-exec-7] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-05-05T12:05:11.511+07:00 DEBUG 86397 --- [http-nio-8090-exec-8] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-05-05T12:05:11.513+07:00 DEBUG 86397 --- [http-nio-8090-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T12:05:11.515+07:00 DEBUG 86397 --- [http-nio-8090-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T12:05:11.518+07:00 DEBUG 86397 --- [http-nio-8090-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Found 'Content-Type:image/jpeg' in response
+2024-05-05T12:05:11.539+07:00 DEBUG 86397 --- [http-nio-8090-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{-119, 80, 78, 71, 13, 10, 26, 10, 0, 0, 0, 13, 73, 72, 68, 82, 0, 0, 1, 46, 0, 0, 1, 98, 8, 6, 0, 0 (truncated)...]
+2024-05-05T12:05:11.542+07:00 DEBUG 86397 --- [http-nio-8090-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T12:05:32.267+07:00 DEBUG 86397 --- [http-nio-8090-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/book/48600fe6-a8e9-4ad3-b275-be98942b1a4c", parameters={}
+2024-05-05T12:05:32.272+07:00 DEBUG 86397 --- [http-nio-8090-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to proud.collection.controller.BookController#getBookDetailPage(UUID, Model)
+2024-05-05T12:05:32.307+07:00 DEBUG 86397 --- [http-nio-8090-exec-10] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+2024-05-05T12:05:32.316+07:00 DEBUG 86397 --- [http-nio-8090-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T12:05:32.322+07:00 DEBUG 86397 --- [http-nio-8090-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/js/bootstrap.min.js", parameters={}
+2024-05-05T12:05:32.322+07:00 DEBUG 86397 --- [http-nio-8090-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/book/display?id=48600fe6-a8e9-4ad3-b275-be98942b1a4c", parameters={masked}
+2024-05-05T12:05:32.322+07:00 DEBUG 86397 --- [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/css/bootstrap.min.css", parameters={}
+2024-05-05T12:05:32.322+07:00 DEBUG 86397 --- [http-nio-8090-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to proud.collection.controller.BookController#displayImage(UUID)
+2024-05-05T12:05:32.323+07:00 DEBUG 86397 --- [http-nio-8090-exec-1] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-05-05T12:05:32.323+07:00 DEBUG 86397 --- [http-nio-8090-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-05-05T12:05:32.327+07:00 DEBUG 86397 --- [http-nio-8090-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T12:05:32.331+07:00 DEBUG 86397 --- [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T12:05:32.332+07:00 DEBUG 86397 --- [http-nio-8090-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Found 'Content-Type:image/jpeg' in response
+2024-05-05T12:05:32.354+07:00 DEBUG 86397 --- [http-nio-8090-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{-119, 80, 78, 71, 13, 10, 26, 10, 0, 0, 0, 13, 73, 72, 68, 82, 0, 0, 1, 46, 0, 0, 1, 98, 8, 6, 0, 0 (truncated)...]
+2024-05-05T12:05:32.356+07:00 DEBUG 86397 --- [http-nio-8090-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T12:05:34.893+07:00 DEBUG 86397 --- [http-nio-8090-exec-4] o.s.web.servlet.DispatcherServlet        : POST "/rating/add", parameters={masked}
+2024-05-05T12:05:34.894+07:00 DEBUG 86397 --- [http-nio-8090-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to proud.collection.controller.RatingController#createReview(RatingRequest, BindingResult, Model)
+2024-05-05T12:05:35.000+07:00 DEBUG 86397 --- [http-nio-8090-exec-4] o.s.web.servlet.view.RedirectView        : View name 'redirect:', model {}
+2024-05-05T12:05:35.001+07:00 DEBUG 86397 --- [http-nio-8090-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 302 FOUND
+2024-05-05T12:05:35.004+07:00 DEBUG 86397 --- [http-nio-8090-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/book/48600fe6-a8e9-4ad3-b275-be98942b1a4c", parameters={}
+2024-05-05T12:05:35.004+07:00 DEBUG 86397 --- [http-nio-8090-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to proud.collection.controller.BookController#getBookDetailPage(UUID, Model)
+2024-05-05T12:05:35.032+07:00 DEBUG 86397 --- [http-nio-8090-exec-5] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+2024-05-05T12:05:35.037+07:00 DEBUG 86397 --- [http-nio-8090-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T12:05:35.046+07:00 DEBUG 86397 --- [http-nio-8090-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/css/bootstrap.min.css", parameters={}
+2024-05-05T12:05:35.046+07:00 DEBUG 86397 --- [http-nio-8090-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/book/display?id=48600fe6-a8e9-4ad3-b275-be98942b1a4c", parameters={masked}
+2024-05-05T12:05:35.046+07:00 DEBUG 86397 --- [http-nio-8090-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/js/bootstrap.min.js", parameters={}
+2024-05-05T12:05:35.047+07:00 DEBUG 86397 --- [http-nio-8090-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to proud.collection.controller.BookController#displayImage(UUID)
+2024-05-05T12:05:35.047+07:00 DEBUG 86397 --- [http-nio-8090-exec-7] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-05-05T12:05:35.047+07:00 DEBUG 86397 --- [http-nio-8090-exec-6] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-05-05T12:05:35.049+07:00 DEBUG 86397 --- [http-nio-8090-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T12:05:35.051+07:00 DEBUG 86397 --- [http-nio-8090-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T12:05:35.054+07:00 DEBUG 86397 --- [http-nio-8090-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Found 'Content-Type:image/jpeg' in response
+2024-05-05T12:05:35.068+07:00 DEBUG 86397 --- [http-nio-8090-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{-119, 80, 78, 71, 13, 10, 26, 10, 0, 0, 0, 13, 73, 72, 68, 82, 0, 0, 1, 46, 0, 0, 1, 98, 8, 6, 0, 0 (truncated)...]
+2024-05-05T12:05:35.069+07:00 DEBUG 86397 --- [http-nio-8090-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T12:06:26.392+07:00 DEBUG 87213 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 15 mappings in 'requestMappingHandlerMapping'
+2024-05-05T12:06:26.448+07:00 DEBUG 87213 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-05-05T12:06:26.496+07:00  WARN 87213 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/h2-console/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2024-05-05T12:06:26.544+07:00 DEBUG 87213 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-05-05T12:06:26.574+07:00 DEBUG 87213 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-05-05T12:06:55.823+07:00  INFO 87213 --- [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-05-05T12:06:55.824+07:00 DEBUG 87213 --- [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2024-05-05T12:06:55.824+07:00 DEBUG 87213 --- [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2024-05-05T12:06:55.824+07:00 DEBUG 87213 --- [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2024-05-05T12:06:55.827+07:00 DEBUG 87213 --- [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@75410429
+2024-05-05T12:06:55.827+07:00 DEBUG 87213 --- [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@3fbc23c3
+2024-05-05T12:06:55.828+07:00 DEBUG 87213 --- [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-05-05T12:06:55.828+07:00  INFO 87213 --- [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2024-05-05T12:06:55.853+07:00 DEBUG 87213 --- [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/book/48600fe6-a8e9-4ad3-b275-be98942b1a4c", parameters={}
+2024-05-05T12:06:55.858+07:00 DEBUG 87213 --- [http-nio-8090-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to proud.collection.controller.BookController#getBookDetailPage(UUID, Model)
+2024-05-05T12:06:56.063+07:00 DEBUG 87213 --- [http-nio-8090-exec-1] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+2024-05-05T12:06:56.310+07:00 DEBUG 87213 --- [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T12:06:56.322+07:00 DEBUG 87213 --- [http-nio-8090-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/css/bootstrap.min.css", parameters={}
+2024-05-05T12:06:56.322+07:00 DEBUG 87213 --- [http-nio-8090-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/js/bootstrap.min.js", parameters={}
+2024-05-05T12:06:56.323+07:00 DEBUG 87213 --- [http-nio-8090-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-05-05T12:06:56.323+07:00 DEBUG 87213 --- [http-nio-8090-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-05-05T12:06:56.325+07:00 DEBUG 87213 --- [http-nio-8090-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/book/display?id=48600fe6-a8e9-4ad3-b275-be98942b1a4c", parameters={masked}
+2024-05-05T12:06:56.326+07:00 DEBUG 87213 --- [http-nio-8090-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to proud.collection.controller.BookController#displayImage(UUID)
+2024-05-05T12:06:56.335+07:00 DEBUG 87213 --- [http-nio-8090-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T12:06:56.336+07:00 DEBUG 87213 --- [http-nio-8090-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T12:06:56.343+07:00 DEBUG 87213 --- [http-nio-8090-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Found 'Content-Type:image/jpeg' in response
+2024-05-05T12:06:56.377+07:00 DEBUG 87213 --- [http-nio-8090-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{-119, 80, 78, 71, 13, 10, 26, 10, 0, 0, 0, 13, 73, 72, 68, 82, 0, 0, 1, 46, 0, 0, 1, 98, 8, 6, 0, 0 (truncated)...]
+2024-05-05T12:06:56.393+07:00 DEBUG 87213 --- [http-nio-8090-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T12:07:29.948+07:00 DEBUG 87213 --- [http-nio-8090-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/user/confirm-account?token=46a3a0c0-4cbc-4243-9ed5-c79619b3a21c", parameters={masked}
+2024-05-05T12:07:29.950+07:00 DEBUG 87213 --- [http-nio-8090-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to proud.collection.controller.UserController#confirmUserAccount(String)
+2024-05-05T12:07:30.105+07:00 DEBUG 87213 --- [http-nio-8090-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'text/html', given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7] and supported [text/plain, */*, application/json, application/*+json]
+2024-05-05T12:07:30.105+07:00 DEBUG 87213 --- [http-nio-8090-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing ["Email verified successfully!"]
+2024-05-05T12:07:30.106+07:00 DEBUG 87213 --- [http-nio-8090-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T12:07:50.202+07:00 DEBUG 87213 --- [http-nio-8090-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/book/all", parameters={}
+2024-05-05T12:07:50.205+07:00 DEBUG 87213 --- [http-nio-8090-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to proud.collection.controller.BookController#getAllBookPage(Model)
+2024-05-05T12:07:50.249+07:00 DEBUG 87213 --- [http-nio-8090-exec-6] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+2024-05-05T12:07:50.279+07:00 DEBUG 87213 --- [http-nio-8090-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T12:07:50.287+07:00 DEBUG 87213 --- [http-nio-8090-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/js/bootstrap.min.js", parameters={}
+2024-05-05T12:07:50.287+07:00 DEBUG 87213 --- [http-nio-8090-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/css/bootstrap.min.css", parameters={}
+2024-05-05T12:07:50.288+07:00 DEBUG 87213 --- [http-nio-8090-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/book/display?id=48600fe6-a8e9-4ad3-b275-be98942b1a4c", parameters={masked}
+2024-05-05T12:07:50.288+07:00 DEBUG 87213 --- [http-nio-8090-exec-10] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-05-05T12:07:50.288+07:00 DEBUG 87213 --- [http-nio-8090-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to proud.collection.controller.BookController#displayImage(UUID)
+2024-05-05T12:07:50.288+07:00 DEBUG 87213 --- [http-nio-8090-exec-7] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-05-05T12:07:50.288+07:00 DEBUG 87213 --- [http-nio-8090-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/book/display?id=eee588f3-b855-4370-bf36-fac21ce332b8", parameters={masked}
+2024-05-05T12:07:50.289+07:00 DEBUG 87213 --- [http-nio-8090-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to proud.collection.controller.BookController#displayImage(UUID)
+2024-05-05T12:07:50.294+07:00 DEBUG 87213 --- [http-nio-8090-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T12:07:50.296+07:00 DEBUG 87213 --- [http-nio-8090-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T12:07:50.299+07:00 DEBUG 87213 --- [http-nio-8090-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Found 'Content-Type:image/jpeg' in response
+2024-05-05T12:07:50.304+07:00 DEBUG 87213 --- [http-nio-8090-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Found 'Content-Type:image/jpeg' in response
+2024-05-05T12:07:50.358+07:00 DEBUG 87213 --- [http-nio-8090-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{-119, 80, 78, 71, 13, 10, 26, 10, 0, 0, 0, 13, 73, 72, 68, 82, 0, 0, 1, 46, 0, 0, 1, 98, 8, 6, 0, 0 (truncated)...]
+2024-05-05T12:07:50.373+07:00 DEBUG 87213 --- [http-nio-8090-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T12:07:50.383+07:00 DEBUG 87213 --- [http-nio-8090-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{-119, 80, 78, 71, 13, 10, 26, 10, 0, 0, 0, 13, 73, 72, 68, 82, 0, 0, 1, 97, 0, 0, 1, 102, 8, 6, 0,  (truncated)...]
+2024-05-05T12:07:50.385+07:00 DEBUG 87213 --- [http-nio-8090-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T12:07:51.744+07:00 DEBUG 87213 --- [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/book/48600fe6-a8e9-4ad3-b275-be98942b1a4c", parameters={}
+2024-05-05T12:07:51.745+07:00 DEBUG 87213 --- [http-nio-8090-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to proud.collection.controller.BookController#getBookDetailPage(UUID, Model)
+2024-05-05T12:07:51.792+07:00 DEBUG 87213 --- [http-nio-8090-exec-1] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+2024-05-05T12:07:51.809+07:00 DEBUG 87213 --- [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T12:07:51.817+07:00 DEBUG 87213 --- [http-nio-8090-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/css/bootstrap.min.css", parameters={}
+2024-05-05T12:07:51.817+07:00 DEBUG 87213 --- [http-nio-8090-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/js/bootstrap.min.js", parameters={}
+2024-05-05T12:07:51.818+07:00 DEBUG 87213 --- [http-nio-8090-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/book/display?id=48600fe6-a8e9-4ad3-b275-be98942b1a4c", parameters={masked}
+2024-05-05T12:07:51.819+07:00 DEBUG 87213 --- [http-nio-8090-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-05-05T12:07:51.819+07:00 DEBUG 87213 --- [http-nio-8090-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to proud.collection.controller.BookController#displayImage(UUID)
+2024-05-05T12:07:51.819+07:00 DEBUG 87213 --- [http-nio-8090-exec-4] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-05-05T12:07:51.823+07:00 DEBUG 87213 --- [http-nio-8090-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T12:07:51.824+07:00 DEBUG 87213 --- [http-nio-8090-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T12:07:51.828+07:00 DEBUG 87213 --- [http-nio-8090-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Found 'Content-Type:image/jpeg' in response
+2024-05-05T12:07:51.847+07:00 DEBUG 87213 --- [http-nio-8090-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{-119, 80, 78, 71, 13, 10, 26, 10, 0, 0, 0, 13, 73, 72, 68, 82, 0, 0, 1, 46, 0, 0, 1, 98, 8, 6, 0, 0 (truncated)...]
+2024-05-05T12:07:51.850+07:00 DEBUG 87213 --- [http-nio-8090-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T12:07:55.046+07:00 DEBUG 87213 --- [http-nio-8090-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/", parameters={}
+2024-05-05T12:07:55.046+07:00 DEBUG 87213 --- [http-nio-8090-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to proud.collection.controller.HomeController#redirectToAllBook()
+2024-05-05T12:07:55.049+07:00 DEBUG 87213 --- [http-nio-8090-exec-5] o.s.web.servlet.view.RedirectView        : View [RedirectView], model {}
+2024-05-05T12:07:55.051+07:00 DEBUG 87213 --- [http-nio-8090-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 302 FOUND
+2024-05-05T12:07:55.059+07:00 DEBUG 87213 --- [http-nio-8090-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/book/all", parameters={}
+2024-05-05T12:07:55.060+07:00 DEBUG 87213 --- [http-nio-8090-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to proud.collection.controller.BookController#getAllBookPage(Model)
+2024-05-05T12:07:55.079+07:00 DEBUG 87213 --- [http-nio-8090-exec-6] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+2024-05-05T12:07:55.087+07:00 DEBUG 87213 --- [http-nio-8090-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T12:07:55.095+07:00 DEBUG 87213 --- [http-nio-8090-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/css/bootstrap.min.css", parameters={}
+2024-05-05T12:07:55.096+07:00 DEBUG 87213 --- [http-nio-8090-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/book/display?id=48600fe6-a8e9-4ad3-b275-be98942b1a4c", parameters={masked}
+2024-05-05T12:07:55.096+07:00 DEBUG 87213 --- [http-nio-8090-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/book/display?id=eee588f3-b855-4370-bf36-fac21ce332b8", parameters={masked}
+2024-05-05T12:07:55.096+07:00 DEBUG 87213 --- [http-nio-8090-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to proud.collection.controller.BookController#displayImage(UUID)
+2024-05-05T12:07:55.096+07:00 DEBUG 87213 --- [http-nio-8090-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to proud.collection.controller.BookController#displayImage(UUID)
+2024-05-05T12:07:55.096+07:00 DEBUG 87213 --- [http-nio-8090-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/js/bootstrap.min.js", parameters={}
+2024-05-05T12:07:55.096+07:00 DEBUG 87213 --- [http-nio-8090-exec-7] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-05-05T12:07:55.096+07:00 DEBUG 87213 --- [http-nio-8090-exec-10] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-05-05T12:07:55.099+07:00 DEBUG 87213 --- [http-nio-8090-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T12:07:55.101+07:00 DEBUG 87213 --- [http-nio-8090-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T12:07:55.106+07:00 DEBUG 87213 --- [http-nio-8090-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Found 'Content-Type:image/jpeg' in response
+2024-05-05T12:07:55.107+07:00 DEBUG 87213 --- [http-nio-8090-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Found 'Content-Type:image/jpeg' in response
+2024-05-05T12:07:55.126+07:00 DEBUG 87213 --- [http-nio-8090-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{-119, 80, 78, 71, 13, 10, 26, 10, 0, 0, 0, 13, 73, 72, 68, 82, 0, 0, 1, 46, 0, 0, 1, 98, 8, 6, 0, 0 (truncated)...]
+2024-05-05T12:07:55.127+07:00 DEBUG 87213 --- [http-nio-8090-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{-119, 80, 78, 71, 13, 10, 26, 10, 0, 0, 0, 13, 73, 72, 68, 82, 0, 0, 1, 97, 0, 0, 1, 102, 8, 6, 0,  (truncated)...]
+2024-05-05T12:07:55.128+07:00 DEBUG 87213 --- [http-nio-8090-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-05T12:07:55.128+07:00 DEBUG 87213 --- [http-nio-8090-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK

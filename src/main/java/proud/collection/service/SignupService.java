@@ -72,8 +72,6 @@ public class SignupService {
         mailMessage.setText("To confirm your account, please click here : "
                 +"http://localhost:8090/user/confirm-account?token="+confirmationToken.getConfirmationToken());
         emailService.sendEmail(mailMessage);
-
-        System.out.println("Confirmation Token: " + confirmationToken.getConfirmationToken());
     }
 
 
