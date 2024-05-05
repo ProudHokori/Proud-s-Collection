@@ -1,6 +1,7 @@
 package proud.collection.controller;
 
 import jakarta.mail.MessagingException;
+import jakarta.mail.internet.MimeMessage;
 import org.modelmapper.internal.bytebuddy.utility.RandomString;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
@@ -63,8 +64,6 @@ public class AuthController {
         String email = request.getParameter("email");
         String token = RandomString.make(30);
 
-        System.out.println("Token: " + token);
-
         try {
             userService.updateResetPasswordToken(token, email);
             String resetPasswordLink = UrlUtil.getSiteURL(request) + "/reset_password?token=" + token;
@@ -81,9 +80,6 @@ public class AuthController {
     }
 
     public void sendEmail(String email, String link) throws MessagingException, UnsupportedEncodingException {
-        SimpleMailMessage mailMessage = new SimpleMailMessage();
-        mailMessage.setTo(email);
-        mailMessage.setSubject("Here's the link to reset your password");
 
         String content = "<p>Hello,</p>"
                 + "<p>You have requested to reset your password.</p>"
@@ -92,7 +88,8 @@ public class AuthController {
                 + "<br>"
                 + "<p>Ignore this email if you do remember your password, "
                 + "or you have not made the request.</p>";
-        mailMessage.setText(content);
+
+        MimeMessage mailMessage = emailService.createEmail(email, "Here's the link to reset your password", content);
         emailService.sendEmail(mailMessage);
     }
 
