@@ -2,77 +2,86 @@
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Add Restaurant</title>
+    <title>Add Book</title>
     <link th:rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
     <script th:src="@{/js/bootstrap.min.js}"></script>
 </head>
-<body>
+<body class="bg-primary-subtle">
 <div th:insert="~{fragments/header :: header}"></div>
 
+<form th:action="@{/book/add}" method="POST"
+    th:object="${bookRequest}" enctype="multipart/form-data">
 
-<div class="container w-50 p-3">
-    <h1 class="display-5">Add a Book</h1>
-
-
-    <form th:action="@{/book/add}" method="POST"
-          th:object="${bookRequest}" enctype="multipart/form-data">
-
-        <div class="mb-3">
-            <label for="inputImage">Image</label>
-            <input id="inputImage" type="file" th:field="*{image}" class="form-control" aria-label="Upload" aria-describedby="inputGroupFileAddon04">
-            <div class="alert alert-warning" th:if="${#fields.hasErrors('image')}"
-                 th:errors="*{image}"></div>
-            <img id="preview" src="#" alt="Preview Image" style="display: none; max-width: 100%; margin-top: 10px;">
-
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6" >
+                <div class="p-3 d-flex justify-content-center align-items-center" style="height: 100%">
+                    <div class="mb-3" >
+                        <div class="d-flex justify-content-center">
+                        <img id="preview" src="#" alt="Preview Image" style="display: none; max-width: 60%; margin-top: 10px;">
+                        </div>
+                        <input id="inputImage" type="file" th:field="*{image}" class="form-control mt-3" aria-label="Upload" aria-describedby="inputGroupFileAddon04">
+                        <div class="alert alert-warning" th:if="${#fields.hasErrors('image')}"
+                             th:errors="*{image}"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5 border border-dark rounded mx-3">
+                <h3 class="display-5 mt-3 d-flex justify-content-center">Add new Book</h3>
+                <div class="green p-3 mt-3 w-80">
+                    <div class="mb-3">
+                        <label for="inputNameTh">TH Name</label>
+                        <input id="inputNameTh" type="text" th:field="*{titleTh}" class="form-control">
+                        <div class="alert alert-warning" th:if="${#fields.hasErrors('titleTh')}"
+                             th:errors="*{titleTh}"></div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputNameEn">EN Name</label>
+                        <input id="inputNameEn" type="text" th:field="*{titleEn}" class="form-control" >
+                        <div class="alert alert-warning" th:if="${#fields.hasErrors('titleEn')}"
+                             th:errors="*{titleEn}"></div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputAuthor">Author</label>
+                        <input id="inputAuthor" type="text" th:field="*{author}"
+                               class="form-control">
+                        <div class="alert alert-warning" th:if="${#fields.hasErrors('author')}"
+                             th:errors="*{author}"></div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputPublisher">Publisher</label>
+                        <input id="inputPublisher" type="text" th:field="*{publisher}"
+                               class="form-control">
+                        <div class="alert alert-warning" th:if="${#fields.hasErrors('publisher')}"
+                             th:errors="*{publisher}"></div>
+                    </div>
+            
+                    <div class="mb-3">
+                        <label for="inputIsbn">ISBN</label>
+                        <input id="inputIsbn" type="text" th:field="*{isbn}"
+                               class="form-control">
+                        <div class="alert alert-warning" th:if="${#fields.hasErrors('isbn')}"
+                             th:errors="*{isbn}"></div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputRating">Rating</label>
+                        <input id="inputRating" type="text" th:field="*{rating}"
+                               class="form-control">
+                        <div class="alert alert-warning" th:if="${#fields.hasErrors('rating')}"
+                             th:errors="*{rating}"></div>
+                    </div>
+                    <div class="d-flex justify-content-end">
+                        <button id="submit-button" type="submit" class="btn btn-primary">
+                            Add Book
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="mb-3">
-            <label for="inputNameTh">Th Name</label>
-            <input id="inputNameTh" type="text" th:field="*{titleTh}" class="form-control">
-            <div class="alert alert-warning" th:if="${#fields.hasErrors('titleTh')}"
-                 th:errors="*{titleTh}"></div>
-        </div>
-        <div class="mb-3">jn
-            <label for="inputNameEn">En Name</label>
-            <input id="inputNameEn" type="text" th:field="*{titleEn}" class="form-control" >
-            <div class="alert alert-warning" th:if="${#fields.hasErrors('titleEn')}"
-                 th:errors="*{titleEn}"></div>
-        </div>
-        <div class="mb-3">
-            <label for="inputAuthor">Author</label>
-            <input id="inputAuthor" type="text" th:field="*{author}"
-                   class="form-control">
-            <div class="alert alert-warning" th:if="${#fields.hasErrors('author')}"
-                 th:errors="*{author}"></div>
-        </div>
-        <div class="mb-3">
-            <label for="inputPublisher">Publisher</label>
-            <input id="inputPublisher" type="text" th:field="*{publisher}"
-                   class="form-control">
-            <div class="alert alert-warning" th:if="${#fields.hasErrors('publisher')}"
-                 th:errors="*{publisher}"></div>
-        </div>
-
-        <div class="mb-3">
-            <label for="inputIsbn">ISBN</label>
-            <input id="inputIsbn" type="text" th:field="*{isbn}"
-                   class="form-control">
-            <div class="alert alert-warning" th:if="${#fields.hasErrors('isbn')}"
-                 th:errors="*{isbn}"></div>
-        </div>
-        <div class="mb-3">
-            <label for="inputRating">Rating</label>
-            <input id="inputRating" type="text" th:field="*{rating}"
-                   class="form-control">
-            <div class="alert alert-warning" th:if="${#fields.hasErrors('rating')}"
-                 th:errors="*{rating}"></div>
-        </div>
+    </div>
 
 
-        <button id="submit-button" type="submit" class="btn btn-primary">
-            Add Book
-        </button>
-    </form>
-</div>
+
 <script th:src="@{/js/preview.js}">
 </script>
 </body>

@@ -1,62 +1,101 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org"  xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Add Restaurant</title>
+    <title>Add Book</title>
     <link th:rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
     <script th:src="@{/js/bootstrap.min.js}"></script>
 </head>
-<body>
+<body class="bg-primary-subtle">
 <div th:insert="~{fragments/header :: header}"></div>
 
-
-<div class="container w-50 p-3">
-    <h1 class="display-5">Book Detail</h1>
-
-    <div class="mb-3">
-        <label for="Image">Image</label>
-        <img id="Image" th:src="@{${'/book/display?id=' + book.id}}" alt="">
-        </div>
-
-    <div class="mb-3">
-        <p id="titleTh" th:text="${book.titleTh}"></p>
-        <p id="titleEn" th:text="${book.titleEn}"></p>
-        <p id="avgUsrRating" th:text="${userAverageRating}"></p>
-        <label for="author">Author:</label>
-        <p id="author" th:text="${book.author}"></p>
-        <label for="publisher">Publisher:</label>
-        <p id="publisher" th:text="${book.publisher}"></p>
-        <label for="isbn">ISBN:</label>
-        <p id="isbn" th:text="${book.isbn}"></p>
-        <label for="adminRating">Proud Rating</label>
-        <p id="adminRating" th:text="${adminAverageRating}"></p>
-    </div>
-    <div class="mb-3">
-    </div>
-
-    <div style="text-align: center" sec:authorize="hasAnyRole('USER', 'ADMIN')">
-        <form th:action="@{/rating/add}" method="POST"
-              th:object="${ratingRequest}">
-
-            <input type="hidden" name="bookId" th:value="${book.Id}"
-                   id="bookId">
-            <input type="hidden" name="userRole" th:value="${userRole}"
-                   id="userRole">
-
-            <div th:unless="${userHasVerified}">
-                <div class="alert alert-warning">
-                    <p>Please verify your email to add rating.</p>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="p-3 d-flex justify-content-center align-items-center" style="height: 100%">
+                <div class="mb-3">
+                    <div class="d-flex justify-content-center">
+                        <img id="Image" th:src="@{${'/book/display?id=' + book.id}}" alt="Image" style="max-width: 70%; margin-top: 10px;">
+                    </div>
                 </div>
             </div>
+        </div>
+        <div class="col-md-5 border border-dark rounded">
+            <h3 class="display-5 mt-5 mx-4" id="titleTh" th:text="${book.titleTh}"></h3>
+            <div class="p-3 mt-3 mx-2 w-80">
+                <div class="mb-3">
+                    <p id="titleEn" th:text="${book.titleEn}"></p>
+                </div>
+                <div class="mb-3">
+                    <p id="avgUsrRating" th:text="${userAverageRating}"></p>
+                </div>
+                <div class="mb-3 row">
+                    <div class="col-3">
+                        <label for="author">Author:</label>
+                    </div>
+                    <div class="col-9">
+                        <p id="author" th:text="${book.author}"></p>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <div class="col-3">
+                        <label for="publisher">Publisher:</label>
+                    </div>
+                    <div class="col-9">
+                        <p id="publisher" th:text="${book.publisher}"></p>
+                    </div>
+                </div>
 
-            <div class="mb-3">
-                <label for="ratingInput">Rating (1 - 5)</label>
-                <input id="ratingInput" type="number" step="0.5" th:field="*{score}"
-                       class="form-control" th:disabled="${!userHasVerified}">
-                <div class="alert alert-warning"
-                     th:if="${#fields.hasErrors('score')}"
-                     th:errors="*{score}"></div>
+                <div class="mb-3 row">
+                    <div class="col-3">
+                        <label for="isbn">ISBN:</label>
+                    </div>
+                    <div class="col-9">
+                        <p id="isbn" th:text="${book.isbn}"></p>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <div class="col-3">
+                        <label for="adminRating">Proud Rating</label>
+                    </div>
+                    <div class="col-9">
+                        <p id="adminRating" th:text="${adminAverageRating}"></p>
+                    </div>
+                </div>
+                <div class="mt-5 d-flex justify-content-center align-content-center" sec:authorize="hasAnyRole('USER', 'ADMIN')">
+                    <a class="btn btn-primary" th:href="@{/rating/add/{id}(id=${book.id})}">Rating this Book</a>
+                </div>
             </div>
+        </div>
+    </div>
+</div>
+
+
+{% comment %} sweetalert (dol part) {% endcomment %}
+
+<div style="text-align: center" sec:authorize="hasAnyRole('USER', 'ADMIN')">
+    <form th:action="@{/rating/add}" method="POST"
+          th:object="${ratingRequest}">
+
+        <input type="hidden" name="bookId" th:value="${book.Id}"
+               id="bookId">
+        <input type="hidden" name="userRole" th:value="${userRole}"
+               id="userRole">
+
+        <div th:unless="${userHasVerified}">
+            <div class="alert alert-warning">
+                <p>Please verify your email to add rating.</p>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="ratingInput">Rating (1 - 5)</label>
+            <input id="ratingInput" type="number" step="0.5" th:field="*{score}"
+                   class="form-control" th:disabled="${!userHasVerified}">
+            <div class="alert alert-warning"
+                 th:if="${#fields.hasErrors('score')}"
+                 th:errors="*{score}"></div>
+        </div>
         <div th:if="${userHasRated}">
             <label for="userRating">Your Rating</label>
             <p id="userRating" th:text="${userRating}"></p>
@@ -65,10 +104,10 @@
         <div th:unless="${userHasRated}">
             <button type="submit" class="btn btn-primary" th:disabled="${!userHasVerified}">Add Rating</button>
         </div>
-        </form>
-    </div>
-
+    </form>
 </div>
 
+<script th:src="@{/js/preview.js}">
+</script>
 </body>
 </html>
