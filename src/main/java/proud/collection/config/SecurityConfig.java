@@ -40,6 +40,8 @@ public class SecurityConfig {
                         .requestMatchers(new AntPathRequestMatcher("/css/**")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/js/**")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/signup")).permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("/forgot_password")).permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("/reset_password")).permitAll()
                         // unauthenticated users can read book and reviews.
                         .requestMatchers(
                                 new AntPathRequestMatcher("/book")).permitAll()

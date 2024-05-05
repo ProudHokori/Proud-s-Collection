@@ -27,7 +27,7 @@ public class Users {
 
 
     private boolean isEnabled;
-
+    private String resetPasswordToken;
 
     private Instant createdAt;
 
