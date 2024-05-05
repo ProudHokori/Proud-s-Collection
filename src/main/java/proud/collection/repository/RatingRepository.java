@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 
@@ -20,4 +21,6 @@ public interface RatingRepository extends JpaRepository<Rating, UUID> {
 //    List<Rating> findAllByBookIdAndUsersRole(UUID bookId, String userRole);
 
     List<Rating> findAllByBookIdAndRole(UUID bookId, String role);
+
+    Optional<Rating> findByUserIdAndBookId(UUID userId, UUID bookId);
 }

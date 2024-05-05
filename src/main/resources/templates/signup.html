@@ -12,6 +12,7 @@
     <form action="#" th:action="@{/signup}" th:object="${signupRequest}" method="POST">
         <div id="success-msg" th:if="${signupSuccess}" class="alert alert-success">
             Successfully signed up! Please <a th:href="@{/login}">login</a>.
+            Please check your email to verify your account.
         </div>
         <div id="error-msg" th:if="${signupError}" class="alert alert-danger">
             <span th:text="${signupError}"></span>

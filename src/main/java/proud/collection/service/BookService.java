@@ -19,10 +19,13 @@ import java.time.Instant;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.UUID;
+import java.util.logging.Logger;
 
 
 @Service
 public class BookService {
+
+   private static final Logger logger = Logger.getLogger(BookService.class.getName());
 
 
     @Autowired
@@ -55,6 +58,7 @@ public class BookService {
         dao.setCreatedAt(Instant.now());
         dao.setImage(blob);
         repository.save(dao);
+        logger.info("Book created successfully with id: " + dao.getId());
     }
 
     public float getAverageRating(UUID bookId) {
@@ -65,7 +69,6 @@ public class BookService {
     }
 
     public float getUserAverageRating(UUID bookId, String role) {
-//        List<Rating> ratings = ratingRepository.findAllByBookIdAndUsersRole(bookId, role);
         List<Rating> ratings = ratingRepository.findAllByBookIdAndRole(bookId, role);
         if (ratings.isEmpty())
             return 0;

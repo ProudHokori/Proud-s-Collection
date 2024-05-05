@@ -10,12 +10,20 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import jakarta.validation.Valid;
+import proud.collection.service.UserService;
+
+import java.util.logging.Logger;
 
 @Controller
 public class SignupController {
 
+    private static final Logger logger = Logger.getLogger(SignupController.class.getName());
+
     @Autowired
     private SignupService signupService;
+
+    @Autowired
+    private UserService userService;
 
     @GetMapping("/signup")
     public String getSignupPage(Model model) {
@@ -30,13 +38,17 @@ public class SignupController {
         if (result.hasErrors())
             return "signup";
 
-        if (signupService.isUsernameAvailable(member.getUsername())) {
+        if(!signupService.isEmailAvailable(member.getEmail())){
+            model.addAttribute("signupError", "Email not available");
+        } else if(!signupService.isUsernameAvailable(member.getUsername())){
+            model.addAttribute("signupError", "Username not available");
+        } else {
             signupService.createMember(member);
             model.addAttribute("signupSuccess", true);
-        } else {
-            model.addAttribute("signupError", "Username not available");
         }
         model.addAttribute("signupRequest", new SignupRequest());
+
+        logger.info("User signed up successfully");
         return "signup";
     }
 }
