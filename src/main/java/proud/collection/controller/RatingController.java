@@ -16,12 +16,14 @@ import org.springframework.web.bind.annotation.*;
 
 
 import java.util.UUID;
+import java.util.logging.Logger;
 
 
 @Controller
 @RequestMapping("/rating")
 public class RatingController {
 
+    private static final Logger logger = Logger.getLogger(RatingController.class.getName());
 
     @Autowired
     private RatingService ratingService;
@@ -37,7 +39,6 @@ public class RatingController {
         String userRole = auth.getAuthorities().iterator().next().getAuthority();
         model.addAttribute("userRole", userRole);
 
-
         return "rating-add";
     }
 
@@ -45,16 +46,15 @@ public class RatingController {
     public String createReview(@Valid RatingRequest rating,
                                BindingResult result, Model model) {
 
-            System.out.println(result);
 
         if (result.hasErrors()) {
             model.addAttribute("bookId", rating.getBookId());
             return "rating-add";
         }
-
-
+        
         ratingService.createReview(rating);
-        return "redirect:/rating/show/" + rating.getBookId();
+        logger.info("Review created successfully");
+        return "redirect:/book/" + rating.getBookId();
     }
 }
 

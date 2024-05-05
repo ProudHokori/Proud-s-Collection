@@ -72,6 +72,39 @@
 
 
 
+    <div style="text-align: center" sec:authorize="hasAnyRole('USER', 'ADMIN')">
+        <form th:action="@{/rating/add}" method="POST"
+              th:object="${ratingRequest}">
+
+            <input type="hidden" name="bookId" th:value="${book.Id}"
+                   id="bookId">
+            <input type="hidden" name="userRole" th:value="${userRole}"
+                   id="userRole">
+
+            <div th:unless="${userHasVerified}">
+                <div class="alert alert-warning">
+                    <p>Please verify your email to add rating.</p>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="ratingInput">Rating (1 - 5)</label>
+                <input id="ratingInput" type="number" step="0.5" th:field="*{score}"
+                       class="form-control" th:disabled="${!userHasVerified}">
+                <div class="alert alert-warning"
+                     th:if="${#fields.hasErrors('score')}"
+                     th:errors="*{score}"></div>
+            </div>
+        <div th:if="${userHasRated}">
+            <label for="userRating">Your Rating</label>
+            <p id="userRating" th:text="${userRating}"></p>
+            <button type="submit" class="btn btn-primary" th:disabled="${!userHasVerified}">Update Rating</button>
+        </div>
+        <div th:unless="${userHasRated}">
+            <button type="submit" class="btn btn-primary" th:disabled="${!userHasVerified}">Add Rating</button>
+        </div>
+        </form>
+    </div>
 
 <script th:src="@{/js/preview.js}">
 </script>

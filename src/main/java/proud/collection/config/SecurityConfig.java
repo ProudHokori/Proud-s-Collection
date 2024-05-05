@@ -53,6 +53,7 @@ public class SecurityConfig {
                         .hasAnyRole("USER", "ADMIN")
 
 
+
                         // admins can add restaurants
                         .requestMatchers(
                                 new AntPathRequestMatcher("/book/add")).hasRole("ADMIN")
