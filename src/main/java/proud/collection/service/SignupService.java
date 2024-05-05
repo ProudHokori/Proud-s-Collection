@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.Instant;
+import java.util.UUID;
 
 @Service
 public class SignupService {
@@ -62,6 +63,7 @@ public class SignupService {
 
         confirmationToken.setUser(newMember);
         confirmationToken.setCreatedDate(Instant.now());
+        confirmationToken.setConfirmationToken(UUID.randomUUID().toString());
         confirmationTokenRepository.save(confirmationToken);
 
         SimpleMailMessage mailMessage = new SimpleMailMessage();
