@@ -35,6 +35,10 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
+                .sessionManagement((session) -> session
+                        .sessionFixation().migrateSession() // Prevent session fixation attacks by migrating the session ID upon login
+                        .invalidSessionUrl("/login") //if session expired user will redirect to login page
+                )
                 .authorizeHttpRequests((requests) -> requests
                         .requestMatchers(new AntPathRequestMatcher("/")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/css/**")).permitAll()
