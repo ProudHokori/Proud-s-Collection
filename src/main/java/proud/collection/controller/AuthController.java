@@ -2,6 +2,7 @@ package proud.collection.controller;
 
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
+import jakarta.validation.Valid;
 import org.modelmapper.internal.bytebuddy.utility.RandomString;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
@@ -11,18 +12,22 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.web.bind.annotation.PostMapping;
+import proud.collection.dto.ResetPasswordRequest;
 import proud.collection.entity.Users;
 import proud.collection.service.EmailService;
 import proud.collection.service.UserService;
 import proud.collection.utils.UrlUtil;
+import proud.collection.validation.CompromisedPasswordValidator;
 
 import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
 
 @Controller
 public class AuthController {
@@ -98,6 +103,7 @@ public class AuthController {
     public String showResetPasswordForm(@Param(value = "token") String token, Model model) {
         Users user = userService.getByResetPasswordToken(token);
         model.addAttribute("token", token);
+        model.addAttribute("resetPasswordRequest", new ResetPasswordRequest());
 
         if (user == null) {
             model.addAttribute("message", "Invalid Token");
@@ -108,11 +114,23 @@ public class AuthController {
     }
 
     @PostMapping("/reset_password")
-    public String processResetPassword(HttpServletRequest request, Model model) {
+    public String processResetPassword(@Valid ResetPasswordRequest member, BindingResult result, Model model,HttpServletRequest request) throws NoSuchAlgorithmException {
         String token = request.getParameter("token");
-        String password = request.getParameter("password");
+        String password = member.getPassword();
         Users user = userService.getByResetPasswordToken(token);
         model.addAttribute("title", "Reset your password");
+        CompromisedPasswordValidator compromisedPasswordValidator = new CompromisedPasswordValidator();
+
+        if (result.hasErrors()) {
+            model.addAttribute("token", token);
+            return "reset-password-form";
+        }
+
+        if (compromisedPasswordValidator.isPasswordCompromised(password)) {
+            model.addAttribute("token", token);
+            model.addAttribute("message", "Password is compromised");
+            return "reset-password-form";
+        }
 
         if (user == null) {
             model.addAttribute("message", "Invalid Token");
