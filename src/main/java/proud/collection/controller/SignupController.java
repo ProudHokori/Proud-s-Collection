@@ -73,8 +73,10 @@ public class SignupController {
 
         if (!signupService.isEmailAvailable(member.getEmail())) {
             model.addAttribute("signupError", "Email not available");
+            setupCaptcha(member);
         } else if (!signupService.isUsernameAvailable(member.getUsername())) {
             model.addAttribute("signupError", "Username not available");
+            setupCaptcha(member);
         } else {
             signupService.createMember(member);
             model.addAttribute("signupSuccess", true);
