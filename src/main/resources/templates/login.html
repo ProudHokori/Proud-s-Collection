@@ -10,6 +10,9 @@
 <div th:insert="~{fragments/header :: header}"></div>
 
 <div class="container w-50 p-3">
+
+    <img th:src="@{/images/proudscollectionlogo.png}" alt="proud's logo" class="w-75 h-3" />
+
     <h1 class="display-5">Login to Kin Kao</h1>
 
     <form th:action="@{/login}" method="POST">
