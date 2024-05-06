@@ -121,15 +121,21 @@ public class BookController {
 
     @PostMapping("/add")
     public String addBook(@Valid BookRequest request,
-                          BindingResult result, Model model) throws IOException, SQLException {
+                          BindingResult result, Model model) {
         if (result.hasErrors())
             return "book-add";
+        try {
 
+            service.createBook(request);
 
-        service.createBook(request);
-
-        logger.info("Book name: " + request.getTitleTh() + "created successfully");
-
+            logger.info("Book name: " + request.getTitleTh() + "created successfully");
+        }catch (Exception e){
+            logger.info("Error creating book: " + e.getMessage());
+            model.addAttribute("error", e.getMessage());
+        }catch (Throwable e){
+            logger.info("Error creating book: " + e.getMessage());
+            model.addAttribute("error", e.getMessage());
+        }
         return "redirect:/book/all";
     }
 
