@@ -1,5 +1,6 @@
 package proud.collection.dto;
 
+import jakarta.persistence.Transient;
 import proud.collection.validation.PasswordMatches;
 import proud.collection.validation.ValidPassword;
 import lombok.Data;
@@ -28,5 +29,9 @@ public class SignupRequest {
 
     @NotBlank
     private String confirmPassword;
+
+    private String captcha;
+    private String hidden;
+    private String image;
 
 }

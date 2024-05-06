@@ -45,7 +45,16 @@
 
         </div>
 
-
+        <div class="mb-3">
+            <div class="col-2">CAPTCHA</div>
+            <div class="col-4">
+                <img th:src="*{'data:image/png;base64,'+ image}" />
+            </div>
+            <div class="col-4">
+                <input type="text" th:field="*{captcha}" class="form-control" />
+                <input type="hidden" th:field="*{hidden}" />
+            </div>
+        </div>
         <button id="submit-button" type="submit" class="btn btn-primary">Sign Up</button>
     </form>
 </div>
