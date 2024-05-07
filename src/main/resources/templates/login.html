@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <title>Login</title>
     <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link th:rel="stylesheet" th:href="@{/css/terms-conditions-modal.css}">
+    <script th:src="@{/js/terms_and_conditions_modal.js}"></script>
 </head>
 <body>
 
@@ -13,7 +15,7 @@
 
     <img th:src="@{/images/proudscollectionlogo.png}" alt="proud's logo" class="w-75 h-3" />
 
-    <h1 class="display-5">Login to Kin Kao</h1>
+    <h1 class="display-5">Login to Proud's Collection</h1>
 
     <form th:action="@{/login}" method="POST">
         <div id="error-msg" th:if="${param.error}" class="alert alert-danger">
@@ -45,6 +47,64 @@
             <a th:href="@{/oauth2/authorization/google}">Google</a>
         </li>
     </ul>
+</div>
+
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="terms-conditions-header">
+            <h2>Terms and Conditions</h2>
+            <h5>Welcome to Proud's Collection!</h5>
+        </div>
+        <div class="terms-conditions-content mt-1 p-4">
+            <p>
+                We are committed to protecting your privacy and ensuring you understand your rights and how your information is used.
+                This document outlines our practices regarding the collection, use, and sharing of your personal data in compliance with
+                applicable privacy laws. By accessing our application, you agree to be bound by these Terms and Conditions.
+            </p>
+
+
+            <h4>Data Collection</h4>
+            <ul>
+                <li>Personal Information: We collect your email addresses and username when you register.</li>
+                <li>Ratings: We record your ratings of books to calculate the average rating displayed to all users.</li>
+            </ul>
+
+            <h4>Use of Personal Data</h4>
+            We use your personal data to:
+            <ul>
+                <li>Manage your account and provide necessary support.</li>
+                <li>Display book ratings and manage your rating submissions.</li>
+            </ul>
+
+            <h4>Disclosure of Personal Data</h4>
+            We may share your data with:
+            <ul>
+                <li>Service providers for technical support of our app.</li>
+                <li>Legal authorities if required by law.</li>
+            </ul>
+
+            <h4>Data Security</h4>
+            <p>Your data is protected with encryption and access controls to prevent unauthorized access and ensure data safety.</p>
+
+            <h4>User Rights</h4>
+            <ul>
+                <li>Edit Ratings: You can change your ratings at any time.</li>
+                <li>Account Termination: You can request to terminate your account and withdraw consent by contacting us at prouds.collection@gmail.com.</li>
+            </ul>
+
+            <h4>Changes to Privacy Terms</h4>
+            <p>We reserve the right to modify these terms. We will notify you of any significant changes.</p>
+
+            <h4>Contact Us</h4>
+            <p>For questions about these privacy terms or anything in website, contact us at prouds.collection@gmail.com.</p>
+
+            <h5>By creating an account, you acknowledge that you have read, understood, and agree to the above terms.</h5>
+        </div>
+    </div>
+
 </div>
 </body>
 </html>

@@ -10,13 +10,14 @@
 <!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <!--    <link rel="stylesheet" href="./index.css">-->
+    <script th:src="@{/js/render_star.js}"></script>
     <!-- Your custom CSS -->
 </head>
 <body class="bg-primary-subtle">
 <div th:insert="~{fragments/header :: header}"></div>
 
 <main class="container mt-5 py-4">
-    <div class="row row-cols-1 row-cols-md-2 g-4">
+    <div class="row row-cols-1 row-cols-md-2 g-4 justify-content-center">
         <th:block th:each="book : ${books}">
             <div class="col">
                 <a th:href="@{/book/{id}(id=${book.id})}" class="text-decoration-none">
@@ -25,11 +26,11 @@
                             <img th:src="@{'/book/display?id=' + ${book.id}}" alt="Book Image" class="img-fluid rounded">
                         </div>
                         <div class="ms-4">
-                            <p class="card-title mt-2"><span th:text="${book.titleTh}"></span></p>
-                            <p class="card-title mt-3"><span th:text="${book.titleEn}"></span></p>
+                            <p class="card-title mt-2"><h3 th:text="${book.titleTh}"></h3></p>
+                            <p class="card-title mt-3"><h4 th:text="${book.titleEn}"></h4></p>
                             <p class="card-title mt-3">Author: <span th:text="${book.author}"></span></p>
 <!--                            <p class="card-title mt-3">Average Rating: <span th:text="${averageRatings[book.id]}"></span></p>-->
-                            <p class="card-title mt-3">Average Rating: <span id="rating-[[${book.id}]]" class="star-rating" th:text="${averageRatings[book.id]}">
+                            <p class="card-title mt-3"><span id="rating-[[${book.id}]]" class="star-rating" th:text="${averageRatings[book.id]}">
                             </span></p>
                         </div>
                     </div>
@@ -48,6 +49,5 @@
 
 <!-- Bootstrap JS -->
 <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
-<script th:src="@{/js/render_star.js}"></script>
 </body>
 </html>

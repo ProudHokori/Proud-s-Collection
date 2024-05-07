@@ -7,14 +7,23 @@
     <script th:src="@{/js/bootstrap.min.js}"></script>
 </head>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light" th:fragment="header">
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="height: 100px;" th:fragment="header">
 
-    <div class="container-fluid">
-        <a class="navbar-brand" th:href="@{/book/all}">Proud's Collection</a>
+    <div class="container-fluid position-relative">
+<!--        <a class="navbar-brand" th:href="@{/book/all}">Proud's Collection</a>-->
+        <div sec:authorize="isAuthenticated()">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 fs-5">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/book/all}">Welcome, <b><span sec:authentication="name"></span></b></a>
+                </li>
+            </ul>
+        </div>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+
+        <img th:src="@{/images/proudscollectionlogo.png}" style="width:150px; height:80px; position:absolute; left:50%; transform: translateX(-50%);">
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -26,11 +35,14 @@
         </div>
         <div sec:authorize="isAuthenticated()">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link" href="#">Welcome, <b><span sec:authentication="name"></span></b></a>-->
+<!--                </li>-->
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Welcome, <b><span sec:authentication="name"></span></b></a>
-                </li>
-                <li class="nav-item">
-                    <a class="btn btn-primary" th:href="@{/logout}">Logout</a>
+                    <a class="btn btn-primary d-flex" th:href="@{/logout}">
+                        <img th:src="@{/images/logout_icon.png}" class="mt-1" style="width:30px; height:30px;">
+                        <p class="fw-bold mt-1" style="margin-left:5px;">Logout</p>
+                    </a>
                 </li>
             </ul>
         </div>
