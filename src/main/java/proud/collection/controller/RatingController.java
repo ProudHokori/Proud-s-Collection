@@ -46,6 +46,10 @@ public class RatingController {
     public String createReview(@Valid RatingRequest rating,
                                BindingResult result, Model model) {
 
+//        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+//        System.out.println(auth.getAuthorities());
+//        System.out.println(auth.isAuthenticated());
+//        System.out.println(auth.getPrincipal());
 
         if (result.hasErrors()) {
             model.addAttribute("bookId", rating.getBookId());
