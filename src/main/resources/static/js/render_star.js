@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function() {
         console.log(averageRating);
         const starRating = createStarRating(averageRating);
         console.log(starRating);
-        bookElement.innerHTML = starRating;
+        bookElement.innerHTML = DOMPurify.sanitize(starRating);;
     });
 });
 
