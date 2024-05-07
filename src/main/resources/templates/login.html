@@ -9,15 +9,16 @@
 </head>
 <body>
 
-<div th:insert="~{fragments/header :: header}"></div>
+<!--<div th:insert="~{fragments/header :: header}"></div>-->
 
-<div class="container w-50 p-3">
+<div class="container p-3 shadow-sm p-3 mb-5 bg-body rounded" style="width:500px; margin-top:100px;">
 
-    <img th:src="@{/images/proudscollectionlogo.png}" alt="proud's logo" class="w-75 h-3" />
+<!--    <img th:src="@{/images/proudscollectionlogo.png}" alt="proud's logo" class="w-75 h-3" />-->
+    <div style="text-align:center;">
+        <h1 class="display-5">Login to Proud's Collection</h1>
+    </div>
 
-    <h1 class="display-5">Login to Proud's Collection</h1>
-
-    <form th:action="@{/login}" method="POST">
+    <form th:action="@{/login}" method="POST" style="margin-top: 20px">
         <div id="error-msg" th:if="${param.error}" class="alert alert-danger">
             Invalid username or password
         </div>
@@ -25,28 +26,33 @@
             You have been logged out
         </div>
         <div class="mb-3">
-            <label for="inputUsername">Username</label>
+            <label for="inputUsername">Username or Email</label>
             <input type="text" name="username" id="inputUsername"
-                   class="form-control" required>
+                   class="form-control" placeholder="Type your username or email" required>
         </div>
         <div class="mb-3">
             <label for="inputPassword">Password</label>
             <input type="password" name="password" id="inputPassword"
-                   class="form-control" required>
+                   class="form-control" placeholder="Type your password" required>
         </div>
-        <button id="submit-button" type="submit" class="btn btn-primary">Login</button>
         <a th:href="@{/forgot_password}">Forgot your password?</a>
+        <br>
+        <button id="submit-button" type="submit" class="btn btn-primary mt-3 w-100">Sign In</button>
     </form>
     <br>
-    <h5>Single Sign-On</h5>
-    <ul class="list-group">
-        <li class="list-group-item">
-            <a th:href="@{/oauth2/authorization/github}">GitHub</a>
-        </li>
+<!--    <h5>Single Sign-On</h5>-->
+    <ul class="list-group w-100">
         <li class="list-group-item">
             <a th:href="@{/oauth2/authorization/google}">Google</a>
         </li>
     </ul>
+    <div sec:authorize="isAnonymous()">
+        <ul class="navbar-nav me-auto mt-3 mb-2 mb-lg-0">
+            <li class="nav-item">
+                New Reader? <a th:href="@{/signup}">Create Account</a>
+            </li>
+        </ul>
+    </div>
 </div>
 
 <div id="myModal" class="modal">
