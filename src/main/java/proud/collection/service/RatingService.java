@@ -4,6 +4,7 @@ package proud.collection.service;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.oauth2.core.oidc.user.DefaultOidcUser;
 import proud.collection.dto.RatingRequest;
 import proud.collection.entity.Book;
 import proud.collection.entity.Rating;
@@ -82,6 +83,11 @@ public class RatingService {
         }
 
         Object principal = authentication.getPrincipal();
+        if (principal instanceof DefaultOidcUser){
+            DefaultOidcUser user = (DefaultOidcUser) principal;
+            Users userEmail = userRepository.findByUsername(user.getName());
+            return userEmail.getId();
+        }
         if (principal instanceof UserDetails) {
             UserDetails userDetails = (UserDetails) principal;
             // Assuming you store user's UUID as username in UserDetails
