@@ -9,7 +9,7 @@ function createStarRating(rating) {
         let starElement = document.createElement('i');
         starElement.className = "fa fa-star fa-2x";
         starElement.style.color = "orange";
-        stars.push(starElement);
+        stars.push(starElement.outerHTML);
     }
 
     // Add half star if needed
@@ -17,7 +17,7 @@ function createStarRating(rating) {
         let starElement = document.createElement('i');
         starElement.className = "fa fa-star-half-full fa-2x";
         starElement.style.color = "orange";
-        stars.push(starElement);
+        stars.push(starElement.outerHTML);
     }
 
     // Add gray stars
@@ -25,7 +25,7 @@ function createStarRating(rating) {
          let starElement = document.createElement('i');
          starElement.className = "fa fa-star-o fa-2x";
          starElement.style.color = "orange";
-         stars.push(starElement);
+         stars.push(starElement.outerHTML);
     }
 
     return stars;
