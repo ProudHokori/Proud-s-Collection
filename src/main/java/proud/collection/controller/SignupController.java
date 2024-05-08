@@ -2,7 +2,6 @@ package proud.collection.controller;
 
 import cn.apiclub.captcha.Captcha;
 import proud.collection.dto.SignupRequest;
-import proud.collection.entity.Users;
 import proud.collection.service.SignupService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -66,6 +65,12 @@ public class SignupController {
         if(member.getCaptcha() == null || !member.getCaptcha().equals(member.getHidden())) {
             model.addAttribute("signupError", "Captcha is incorrect");
             logger.info("User tried to sign up with an incorrect captcha");
+            setupCaptcha(member);
+            return "signup";
+        }
+
+        if (!member.isAcceptConsent()) {
+            model.addAttribute("signupError", "Please accept the terms and conditions");
             setupCaptcha(member);
             return "signup";
         }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/bootstrap.min.css}">
@@ -55,6 +56,12 @@
                 <input type="hidden" th:field="*{hidden}" />
             </div>
         </div>
+
+        <div class="mb-3 form-check">
+        <input id="acceptConsentCheckbox" type="checkbox" th:field="*{acceptConsent}" class="form-check-input">
+        <label for="acceptConsentCheckbox" class="form-check-label">I accept the terms and conditions</label>
+    </div>
+
         <button id="submit-button" type="submit" class="btn btn-primary">Sign Up</button>
     </form>
     <div sec:authorize="isAnonymous()">
