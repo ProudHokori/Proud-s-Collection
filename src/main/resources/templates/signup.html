@@ -3,6 +3,8 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/bootstrap.min.css}">
+    <link th:rel="stylesheet" th:href="@{/css/terms-conditions-modal.css}">
+    <script th:src="@{/js/terms_and_conditions_modal.js}"></script>
     <title>Sign Up</title>
 </head>
 <body>
@@ -55,7 +57,12 @@
                 <input type="hidden" th:field="*{hidden}" />
             </div>
         </div>
-        <button id="submit-button" type="submit" class="btn btn-primary">Sign Up</button>
+
+        <div class="d-flex me-auto">
+            <input type="checkbox" class="margin-bottom:5px;" required>&emsp;I accept the&emsp;<a id="myBtn" style="text-decoration-line: underline; color:blue; cursor: pointer;">Terms and Conditions</a>
+        </div>
+
+        <button id="submit-button" type="submit" class="btn btn-primary mt-3">Sign Up</button>
     </form>
     <div sec:authorize="isAnonymous()">
         <ul class="navbar-nav me-auto mt-3 mb-2 mb-lg-0">
@@ -65,5 +72,63 @@
         </ul>
     </div>
 </div>
+
+<div id="myModal" class="modal">
+
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="terms-conditions-header">
+            <h2>Terms and Conditions</h2>
+            <h5>Welcome to Proud's Collection!</h5>
+        </div>
+        <div class="terms-conditions-content mt-1 p-4">
+            <p>
+                We are committed to protecting your privacy and ensuring you understand your rights and how your information is used.
+                This document outlines our practices regarding the collection, use, and sharing of your personal data in compliance with
+                applicable privacy laws. By accessing our application, you agree to be bound by these Terms and Conditions.
+            </p>
+
+
+            <h4>Data Collection</h4>
+            <ul>
+                <li>Personal Information: We collect your email addresses and username when you register.</li>
+                <li>Ratings: We record your ratings of books to calculate the average rating displayed to all users.</li>
+            </ul>
+
+            <h4>Use of Personal Data</h4>
+            We use your personal data to:
+            <ul>
+                <li>Manage your account and provide necessary support.</li>
+                <li>Display book ratings and manage your rating submissions.</li>
+            </ul>
+
+            <h4>Disclosure of Personal Data</h4>
+            We may share your data with:
+            <ul>
+                <li>Service providers for technical support of our app.</li>
+                <li>Legal authorities if required by law.</li>
+            </ul>
+
+            <h4>Data Security</h4>
+            <p>Your data is protected with encryption and access controls to prevent unauthorized access and ensure data safety.</p>
+
+            <h4>User Rights</h4>
+            <ul>
+                <li>Edit Ratings: You can change your ratings at any time.</li>
+                <li>Account Termination: You can request to terminate your account and withdraw consent by contacting us at prouds.collection@gmail.com.</li>
+            </ul>
+
+            <h4>Changes to Privacy Terms</h4>
+            <p>We reserve the right to modify these terms. We will notify you of any significant changes.</p>
+
+            <h4>Contact Us</h4>
+            <p>For questions about these privacy terms or anything in website, contact us at prouds.collection@gmail.com.</p>
+
+            <h5>By creating an account, you acknowledge that you have read, understood, and agree to the above terms.</h5>
+        </div>
+    </div>
+
+</div>
+
 </body>
 </html>
