@@ -106,10 +106,10 @@
                                 <div th:if="${userHasRated}">
 <!--                                    <label for="userRating">Your Rating</label>-->
 <!--                                    <p id="userRating" th:text="${userRating}"></p>-->
-                                    <button type="submit" class="btn btn-primary" th:disabled="${!userHasVerified}">Update Rating</button>
+                                    <button type="submit" class="btn" th:disabled="${!userHasVerified}" style="background-color:#5D3E66; color:white;">Update Rating</button>
                                 </div>
                                 <div th:unless="${userHasRated}">
-                                    <button type="submit" class="btn btn-primary" th:disabled="${!userHasVerified}">Add Rating</button>
+                                    <button type="submit" class="btn" th:disabled="${!userHasVerified}" style="background-color:#5D3E66; color:white;">Add Rating</button>
                                 </div>
                             </form>
                         </div>
