@@ -86,13 +86,12 @@ public class AuthController {
 
     public void sendEmail(String email, String link) throws MessagingException, UnsupportedEncodingException {
 
-        String content = "<p>Hello,</p>"
-                + "<p>You have requested to reset your password.</p>"
-                + "<p>Click the link below to change your password:</p>"
-                + "<p><a href=\"" + link + "\">Change my password</a></p>"
+        String content = "<p>Dear User,</p>"
+                + "<p>We are writing to <strong>formally notify</strong> you that a request to reset your password has been received.</p>"
+                + "<p>Please <strong>proceed promptly</strong> to change your password by clicking the link below:</p>"
+                + "<p><a href=\"" + link + "\">Reset Password</a></p>"
                 + "<br>"
-                + "<p>Ignore this email if you do remember your password, "
-                + "or you have not made the request.</p>";
+                + "<p>If you <strong>did not initiate this request</strong> or you remember your password, please <strong>disregard this message</strong>.</p>";
 
         MimeMessage mailMessage = emailService.createEmail(email, "Here's the link to reset your password", content);
         emailService.sendEmail(mailMessage);
