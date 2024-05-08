@@ -46,10 +46,6 @@ public class RatingController {
     public String createReview(@Valid RatingRequest rating,
                                BindingResult result, Model model) {
 
-        if (result.hasErrors()) {
-            model.addAttribute("bookId", rating.getBookId());
-            return "rating-add";
-        }
         
         ratingService.createReview(rating);
         logger.info("Review created successfully");
