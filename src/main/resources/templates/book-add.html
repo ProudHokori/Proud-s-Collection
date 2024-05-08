@@ -6,7 +6,7 @@
     <link th:rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
     <script th:src="@{/js/bootstrap.min.js}"></script>
 </head>
-<body class="bg-primary-subtle">
+<body style="background:#E2D0D5;">
 <div th:insert="~{fragments/header :: header}"></div>
 
 <form th:action="@{/book/add}" method="POST"
@@ -65,7 +65,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="inputRating">Rating</label>
-                        <input id="inputRating" type="text" th:field="*{rating}"
+                        <input id="inputRating" type="number" step="0.5" th:field="*{rating}"
                                class="form-control">
                         <div class="alert alert-warning" th:if="${#fields.hasErrors('rating')}"
                              th:errors="*{rating}"></div>
