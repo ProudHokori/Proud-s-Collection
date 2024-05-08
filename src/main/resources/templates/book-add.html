@@ -20,7 +20,7 @@
                         <div class="d-flex justify-content-center">
                         <img id="preview" src="#" alt="Preview Image" style="display: none; max-width: 60%; margin-top: 10px;">
                         </div>
-                        <input id="inputImage" type="file" th:field="*{image}" class="form-control mt-3" aria-label="Upload" aria-describedby="inputGroupFileAddon04" accept="image/png, image/jpeg">
+                        <input id="inputImage" type="file" th:field="*{image}" class="form-control mt-3" aria-label="Upload" aria-describedby="inputGroupFileAddon04" accept="image/png, image/jpeg" required>
                         <div class="alert alert-warning" th:if="${#fields.hasErrors('image')}"
                              th:errors="*{image}"></div>
                     </div>

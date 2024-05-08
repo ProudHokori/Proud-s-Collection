@@ -1,6 +1,7 @@
 package proud.collection.service;
 
 
+import jakarta.validation.Valid;
 import org.springframework.web.multipart.MultipartFile;
 import proud.collection.dto.BookRequest;
 import proud.collection.dto.RatingRequest;
@@ -53,7 +54,7 @@ public class BookService {
     }
 
 
-    public void createBook(BookRequest request) throws IOException, SQLException {
+    public void createBook(@Valid BookRequest request) throws IOException, SQLException {
         MultipartFile image = request.getImage();
         byte[] imageBytes = image.getBytes();
         Blob blob = new javax.sql.rowset.serial.SerialBlob(imageBytes);
