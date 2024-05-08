@@ -51,6 +51,8 @@ public class SecurityConfig {
                                 new AntPathRequestMatcher("/book")).permitAll()
                         .requestMatchers(
                                 new AntPathRequestMatcher("/rating/show/**")).permitAll()
+                        .requestMatchers(
+                                new AntPathRequestMatcher("/user/confirm-account")).permitAll()
 
 
                         // members and admins can also add reviews
