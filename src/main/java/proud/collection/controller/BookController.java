@@ -96,6 +96,12 @@ public class BookController {
         return user.getId();
     }
 
+    private Users getCurrentUser() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String username = authentication.getName();
+        return usersRepository.findByUsername(username);
+    }
+
     @GetMapping("/all")
     public String getAllBookPage(Model model) {
         List<Book> books = service.getAllBooks();
@@ -126,6 +132,11 @@ public class BookController {
             return "book-add";
         }
 
+        Users user = getCurrentUser();
+        if(!user.isEnabled()){
+            model.addAttribute("error", "User is not verified yet. Please check your email for verification link");
+            return "book-add";
+        }
         if(request.getImage().isEmpty())
         {
             model.addAttribute("error", "Please select a file to upload");

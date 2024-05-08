@@ -42,7 +42,7 @@ public class RatingService {
     private ModelMapper modelMapper;
 
 
-    public void createReview(RatingRequest ratingRequest) {
+    public void createReview(@Valid RatingRequest ratingRequest) {
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         Validator validator = factory.getValidator();
         Set<ConstraintViolation<RatingRequest>> violations = validator.validate(ratingRequest);
