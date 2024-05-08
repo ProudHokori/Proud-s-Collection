@@ -20,8 +20,7 @@ import java.util.logging.Logger;
 
 @Controller
 public class SignupController {
-
-    private static final Logger logger = Logger.getLogger(SignupController.class.getName());
+    Logger logger = Logger.getLogger(SignupController.class.getName());
 
     @Autowired
     private SignupService signupService;

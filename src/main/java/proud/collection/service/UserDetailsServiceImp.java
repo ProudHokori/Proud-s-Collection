@@ -1,6 +1,7 @@
 package proud.collection.service;
 
 
+import org.slf4j.LoggerFactory;
 import proud.collection.entity.Users;
 import proud.collection.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,7 @@ import java.util.logging.Logger;
 public class UserDetailsServiceImp implements UserDetailsService {
 
 
-    private static final Logger logger = Logger.getLogger(UserDetailsServiceImp.class.getName());
+    Logger logger = (Logger) LoggerFactory.getLogger(UserDetailsServiceImp.class);
 
 
     @Autowired

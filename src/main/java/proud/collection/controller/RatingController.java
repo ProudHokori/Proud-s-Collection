@@ -15,6 +15,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 
+import java.time.Instant;
 import java.util.UUID;
 import java.util.logging.Logger;
 
@@ -22,8 +23,7 @@ import java.util.logging.Logger;
 @Controller
 @RequestMapping("/rating")
 public class RatingController {
-
-    private static final Logger logger = Logger.getLogger(RatingController.class.getName());
+    Logger logger = Logger.getLogger(RatingController.class.getName());
 
     @Autowired
     private RatingService ratingService;
@@ -35,11 +35,11 @@ public class RatingController {
         try {
             ratingService.createReview(rating);
         }catch (Exception e){
-            logger.severe("Error creating rating: " + e.getMessage());
+            logger.severe("Error creating rating: " + e.getMessage() + Instant.now());
             model.addAttribute("error", e.getMessage());
             return "error";
         }
-        logger.info("Rating created successfully");
+        logger.info("Rating created successfully" + Instant.now());
         return "redirect:/book/" + rating.getBookId();
     }
 }
