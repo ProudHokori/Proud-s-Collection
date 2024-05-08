@@ -41,7 +41,7 @@
             <label for="inputPassword">Password</label>
             <input id="inputPassword" type="password" th:field="*{password}" class="form-control">
             <span toggle="#inputPassword" class="fa fa-fw fa-eye toggle-password"
-                  style="float: right; margin-left: -25px; margin-right: 10px; margin-top: -25px; position: relative; z-index: 2; cursor: pointer;"></span>
+                  style="float: right; margin-left: -25px; margin-right: 10px; margin-top: -25px; position: relative; z-index: 1; cursor: pointer;"></span>
             <div class="alert alert-warning" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
         </div>
 
@@ -49,7 +49,7 @@
             <label for="inputPasswordConfirm">Confirm Password</label>
             <input id="inputPasswordConfirm" type="password" th:field="*{confirmPassword}" class="form-control">
             <span toggle="#inputPasswordConfirm" class="fa fa-fw fa-eye toggle-password"
-                  style="float: right; margin-left: -25px; margin-right: 10px; margin-top: -25px; position: relative; z-index: 2; cursor: pointer;"></span>
+                  style="float: right; margin-left: -25px; margin-right: 10px; margin-top: -25px; position: relative; z-index: 1; cursor: pointer;"></span>
             <div class="alert alert-warning" th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}"></div>
 
         </div>
