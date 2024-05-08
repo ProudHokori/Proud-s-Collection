@@ -57,6 +57,13 @@
         </div>
         <button id="submit-button" type="submit" class="btn btn-primary">Sign Up</button>
     </form>
+    <div sec:authorize="isAnonymous()">
+        <ul class="navbar-nav me-auto mt-3 mb-2 mb-lg-0">
+            <li class="nav-item">
+                Already be a Reader? <a th:href="@{/login}">Sign In</a>
+            </li>
+        </ul>
+    </div>
 </div>
 </body>
 </html>
