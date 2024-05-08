@@ -6,17 +6,29 @@ function createStarRating(rating) {
 
     // Add full stars
     for (let i = 0; i < fullStars; i++) {
-        stars.push('<i class="fa fa-star fa-2x" style="color:orange;"></i>');
+        let starElement = document.createElement('i');
+        starElement.className = "fa fa-star fa-2x";
+        starElement.style.color = "orange";
+        stars.push(starElement.outerHTML);
+//        stars.push('<i class="fa fa-star fa-2x" style="color:orange;"></i>');
     }
 
     // Add half star if needed
     if (halfStar) {
-        stars.push('<i class="fa fa-star-half-full fa-2x" style="color:orange;"></i>');
+        let starElement = document.createElement('i');
+        starElement.className = "fa fa-star-half-full fa-2x";
+        starElement.style.color = "orange";
+        stars.push(starElement.outerHTML);
+//        stars.push('<i class="fa fa-star-half-full fa-2x" style="color:orange;"></i>');
     }
 
     // Add gray stars
     for (let i = 0; i < grayStars; i++) {
-        stars.push('<i class="fa fa-star-o fa-2x" style="color:orange;"></i>');
+         let starElement = document.createElement('i');
+         starElement.className = "fa fa-star-o fa-2x";
+         starElement.style.color = "orange";
+         stars.push(starElement.outerHTML);
+//        stars.push('<i class="fa fa-star-o fa-2x" style="color:orange;"></i>');
     }
 
     return stars;
