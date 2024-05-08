@@ -5,7 +5,9 @@
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/bootstrap.min.css}">
     <link th:rel="stylesheet" th:href="@{/css/terms-conditions-modal.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script th:src="@{/js/terms_and_conditions_modal.js}"></script>
+    <script th:src="@{/js/show_password.js}"></script>
     <title>Sign Up</title>
 </head>
 <body>
@@ -38,12 +40,16 @@
         <div class="mb-3">
             <label for="inputPassword">Password</label>
             <input id="inputPassword" type="password" th:field="*{password}" class="form-control">
+            <span toggle="#inputPassword" class="fa fa-fw fa-eye toggle-password"
+                  style="float: right; margin-left: -25px; margin-right: 10px; margin-top: -25px; position: relative; z-index: 2; cursor: pointer;"></span>
             <div class="alert alert-warning" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
         </div>
 
         <div class="mb-3">
             <label for="inputPasswordConfirm">Confirm Password</label>
             <input id="inputPasswordConfirm" type="password" th:field="*{confirmPassword}" class="form-control">
+            <span toggle="#inputPasswordConfirm" class="fa fa-fw fa-eye toggle-password"
+                  style="float: right; margin-left: -25px; margin-right: 10px; margin-top: -25px; position: relative; z-index: 2; cursor: pointer;"></span>
             <div class="alert alert-warning" th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}"></div>
 
         </div>
