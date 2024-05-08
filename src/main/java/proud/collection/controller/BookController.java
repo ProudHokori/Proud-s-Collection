@@ -122,9 +122,27 @@ public class BookController {
     @PostMapping("/add")
     public String addBook(@Valid BookRequest request,
                           BindingResult result, Model model) throws IOException, SQLException {
-        if (result.hasErrors())
+        if (result.hasErrors()) {
             return "book-add";
+        }
 
+        if(request.getImage().isEmpty())
+        {
+            model.addAttribute("error", "Please select a file to upload");
+            return "book-add";
+        }
+
+        if (!request.getImage().getContentType().equals("image/jpeg")) {
+            model.addAttribute("error", "Please upload a JPEG image");
+            return "book-add";
+        }
+
+        // check size of file
+        if(request.getImage().getSize() > 1048576)
+        {
+            model.addAttribute("error", "File size too large. Please upload a file less than 50MB");
+            return "book-add";
+        }
         service.createBook(request);
 
         logger.info("Book name: " + request.getTitleTh() + "created successfully");
