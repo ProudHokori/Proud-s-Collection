@@ -21,6 +21,7 @@
     </div>
 
     <form th:action="@{/login}" method="POST" style="margin-top: 20px">
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
         <div id="error-msg" th:if="${param.error}" class="alert alert-danger">
             Invalid username or password
         </div>

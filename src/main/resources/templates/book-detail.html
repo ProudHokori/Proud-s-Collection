@@ -82,7 +82,7 @@
                         <div style="text-align: center" sec:authorize="hasAnyRole('USER', 'ADMIN')">
                             <form th:action="@{/rating/add}" method="POST"
                                   th:object="${ratingRequest}">
-
+                                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
                                 <input type="hidden" name="bookId" th:value="${book.Id}"
                                        id="bookId">
                                 <input type="hidden" name="userRole" th:value="${userRole}"
