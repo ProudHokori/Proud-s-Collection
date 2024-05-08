@@ -9,7 +9,7 @@ function createStarRating(rating) {
         let starElement = document.createElement('i');
         starElement.className = "fa fa-star fa-2x";
         starElement.style.color = "orange";
-        stars.push(starElement.outerHTML);
+        stars.push(starElement);
     }
 
     // Add half star if needed
@@ -17,7 +17,7 @@ function createStarRating(rating) {
         let starElement = document.createElement('i');
         starElement.className = "fa fa-star-half-full fa-2x";
         starElement.style.color = "orange";
-        stars.push(starElement.outerHTML);
+        stars.push(starElement);
     }
 
     // Add gray stars
@@ -25,7 +25,7 @@ function createStarRating(rating) {
          let starElement = document.createElement('i');
          starElement.className = "fa fa-star-o fa-2x";
          starElement.style.color = "orange";
-         stars.push(starElement.outerHTML);
+         stars.push(starElement);
     }
 
     return stars;
@@ -42,14 +42,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
 document.addEventListener("DOMContentLoaded", function() {
     const adminRating = document.getElementById('adminRating');
-    const averageRating = parseFloat(bookElement.textContent);
+    const averageRating = parseFloat(adminRating.textContent);
     const starRating = createStarRating(averageRating).join('');
     adminRating.innerHTML = starRating;
 });
 
 document.addEventListener("DOMContentLoaded", function() {
     const avgUsrRating = document.getElementById('avgUsrRating');
-    const averageRating = parseFloat(bookElement.textContent);
+    const averageRating = parseFloat(avgUsrRating.textContent);
     const starRating = createStarRating(averageRating).join('');
     avgUsrRating.innerHTML = starRating;
 });
