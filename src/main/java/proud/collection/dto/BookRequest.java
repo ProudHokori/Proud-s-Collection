@@ -25,5 +25,6 @@ public class BookRequest {
     @Min(0)
     @Max(5)
     private float rating;
+    @NotBlank
     private MultipartFile image;
 }
