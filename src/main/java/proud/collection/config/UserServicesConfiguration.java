@@ -94,6 +94,7 @@ public class UserServicesConfiguration {
                     repoUser.setCreatedAt(Instant.now());
                     repoUser.setRole("ROLE_USER");
                     repoUser.setEnabled(true);
+                    repoUser.setAcceptConsent(true);
                     userRepository.save(repoUser);
                 }
                 Collection<GrantedAuthority> authorities = new ArrayList<>();

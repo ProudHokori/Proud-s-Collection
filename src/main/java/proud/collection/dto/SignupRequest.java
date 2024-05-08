@@ -1,14 +1,10 @@
 package proud.collection.dto;
 
 import jakarta.persistence.Transient;
+import jakarta.validation.constraints.*;
 import proud.collection.validation.PasswordMatches;
 import proud.collection.validation.ValidPassword;
 import lombok.Data;
-
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
 
 @Data
 @PasswordMatches
@@ -30,8 +26,12 @@ public class SignupRequest {
     @NotBlank
     private String confirmPassword;
 
+    @NotNull
+    private boolean isAcceptConsent;
+
     private String captcha;
     private String hidden;
     private String image;
+
 
 }
