@@ -5,15 +5,22 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 @ControllerAdvice
 public class ErrorController {
 
+    private static final Logger logger = Logger.getLogger(ErrorController.class.getName());
 
     @ExceptionHandler(Throwable.class)
-    @ResponseStatus // you can specify specific status code here
+    @ResponseStatus
     public String exception(final Throwable throwable, final Model model) {
-        return "error"; // return error.html
+
+        logger.log(Level.SEVERE, "Exception during execution", throwable);
+
+        return "error";
     }
 }
 
