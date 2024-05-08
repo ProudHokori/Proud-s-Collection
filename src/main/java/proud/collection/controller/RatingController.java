@@ -29,26 +29,12 @@ public class RatingController {
     private RatingService ratingService;
 
 
-    @GetMapping("/add/{bookId}")
-    public String getReviewForm(@PathVariable UUID bookId,
-                                Model model) {
-
-        model.addAttribute("bookId", bookId);
-        model.addAttribute("ratingRequest", new RatingRequest());
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        String userRole = auth.getAuthorities().iterator().next().getAuthority();
-        model.addAttribute("userRole", userRole);
-
-        return "rating-add";
-    }
-
     @PostMapping("/add")
     public String createReview(@Valid RatingRequest rating,
                                BindingResult result, Model model) {
 
-        
         ratingService.createReview(rating);
-        logger.info("Review created successfully");
+        logger.info("Rating created successfully");
         return "redirect:/book/" + rating.getBookId();
     }
 }

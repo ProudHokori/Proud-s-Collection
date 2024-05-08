@@ -125,7 +125,6 @@ public class BookController {
         if (result.hasErrors())
             return "book-add";
 
-
         service.createBook(request);
 
         logger.info("Book name: " + request.getTitleTh() + "created successfully");

@@ -3,6 +3,7 @@ package proud.collection.service;
 
 import org.springframework.web.multipart.MultipartFile;
 import proud.collection.dto.BookRequest;
+import proud.collection.dto.RatingRequest;
 import proud.collection.entity.Book;
 import proud.collection.entity.Rating;
 import proud.collection.repository.BookRepository;
@@ -37,6 +38,8 @@ public class BookService {
     @Autowired
     private ModelMapper modelMapper;
 
+    @Autowired RatingService ratingService;
+
 
     public List<Book> getAllBooks() {
         return repository.findAll();
@@ -58,6 +61,14 @@ public class BookService {
         dao.setCreatedAt(Instant.now());
         dao.setImage(blob);
         repository.save(dao);
+
+
+        RatingRequest ratingRequest = new RatingRequest();
+
+        ratingRequest.setBookId(dao.getId());
+        ratingRequest.setScore(request.getRating());
+        ratingRequest.setUserRole("ROLE_ADMIN");
+        ratingService.createReview(ratingRequest);
         logger.info("Book created successfully with id: " + dao.getId());
     }
 
