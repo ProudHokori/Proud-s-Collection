@@ -11,12 +11,17 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 
 @Service
 public class UserDetailsServiceImp implements UserDetailsService {
+
+
+    private static final Logger logger = Logger.getLogger(UserDetailsServiceImp.class.getName());
 
 
     @Autowired
@@ -38,6 +43,9 @@ public class UserDetailsServiceImp implements UserDetailsService {
 
         List<SimpleGrantedAuthority> authorities = new ArrayList<>();
         authorities.add(new SimpleGrantedAuthority(user.getRole()));
+
+        logger.info(username + " has successfully logged in at "
+                + Instant.now());
 
 
         return new org.springframework.security.core.userdetails.User(
