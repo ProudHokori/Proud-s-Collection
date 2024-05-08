@@ -137,6 +137,7 @@ public class BookController {
             model.addAttribute("error", "User is not verified yet. Please check your email for verification link");
             return "book-add";
         }
+
         if(request.getImage().isEmpty())
         {
             model.addAttribute("error", "Please select a file to upload");
@@ -148,12 +149,14 @@ public class BookController {
             return "book-add";
         }
 
-        // check size of file
-        if(request.getImage().getSize() > 1048576)
+        // check size of file up to 10MB
+        if(request.getImage().getSize() > 10000000)
         {
-            model.addAttribute("error", "File size too large. Please upload a file less than 50MB");
+            model.addAttribute("error", "File size too large. Please upload a file less than 10MB");
             return "book-add";
         }
+
+
         service.createBook(request);
 
         logger.info("Book name: " + request.getTitleTh() + "created successfully");
