@@ -1,6 +1,7 @@
 package proud.collection.service;
 
 
+import jakarta.validation.*;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -19,6 +20,7 @@ import proud.collection.repository.UserRepository;
 
 import java.time.Instant;
 import java.util.Optional;
+import java.util.Set;
 import java.util.UUID;
 
 
@@ -41,10 +43,20 @@ public class RatingService {
 
 
     public void createReview(RatingRequest ratingRequest) {
+        ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+        Validator validator = factory.getValidator();
+        Set<ConstraintViolation<RatingRequest>> violations = validator.validate(ratingRequest);
+        if (!violations.isEmpty()) {
+            throw new ConstraintViolationException(violations);
+        }
 
         UUID userId = getCurrentUserId();
         UUID bookId = ratingRequest.getBookId();
         float score = ratingRequest.getScore();
+
+        if(score < 0 || score > 5){
+            throw new IllegalArgumentException("Score must be between 0 and 5");
+        }
 
         Optional<Rating> existingRatingOptional = ratingRepository.findByUserIdAndBookId(userId, bookId);
 
@@ -54,7 +66,6 @@ public class RatingService {
             existingRating.setCreatedAt(Instant.now());
             ratingRepository.save(existingRating);
         }else{
-
 
             Rating newRating = new Rating();
             newRating.setScore(score);

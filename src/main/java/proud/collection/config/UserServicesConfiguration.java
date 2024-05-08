@@ -87,6 +87,8 @@ public class UserServicesConfiguration {
                         user.getIdToken(), user.getUserInfo(), attribute);
                 Users userEmail = userRepository.findByEmailIgnoreCase(user.getAttributes().get("email").toString());
                 Users userName = userRepository.findByUsername(user.getAttributes().get("name").toString());
+                Collection<GrantedAuthority> authorities = new ArrayList<>();
+
                 if (userEmail == null && userName == null) {
                     Users repoUser = new Users();
                     repoUser.setEmail(user.getAttributes().get("email").toString());
@@ -96,9 +98,10 @@ public class UserServicesConfiguration {
                     repoUser.setEnabled(true);
                     repoUser.setAcceptConsent(true);
                     userRepository.save(repoUser);
+
                 }
-                Collection<GrantedAuthority> authorities = new ArrayList<>();
-                authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
+                userEmail = userRepository.findByEmailIgnoreCase(user.getAttributes().get("email").toString());
+                authorities.add(new SimpleGrantedAuthority(userEmail.getRole()));
                 return new DefaultOidcUser(authorities, user.getIdToken(), user.getUserInfo(), attribute);
 
 

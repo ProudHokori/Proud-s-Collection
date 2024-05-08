@@ -32,8 +32,13 @@ public class RatingController {
     @PostMapping("/add")
     public String createReview(@Valid RatingRequest rating,
                                BindingResult result, Model model) {
-
-        ratingService.createReview(rating);
+        try {
+            ratingService.createReview(rating);
+        }catch (Exception e){
+            logger.severe("Error creating rating: " + e.getMessage());
+            model.addAttribute("error", e.getMessage());
+            return "error";
+        }
         logger.info("Rating created successfully");
         return "redirect:/book/" + rating.getBookId();
     }

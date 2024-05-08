@@ -17,6 +17,9 @@
 <div class="container w-50 p-3">
     <h1 class="display-5">Error</h1>
     <p>Something went wrong</p>
+    <div class="alert alert-danger" th:if="${error}">
+        <p th:text="${error}"></p>
+    </div>
     <p>Back to <a th:href="@{/}">Home Page</a></p>
 </div>
 
