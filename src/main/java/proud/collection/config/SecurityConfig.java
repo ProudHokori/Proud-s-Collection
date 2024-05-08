@@ -1,6 +1,7 @@
 package proud.collection.config;
 
 
+import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
 import proud.collection.service.UserDetailsServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -38,6 +39,9 @@ public class SecurityConfig {
                 .sessionManagement((session) -> session
                         .sessionFixation().migrateSession() // Prevent session fixation attacks by migrating the session ID upon login
                         .invalidSessionUrl("/login") //if session expired user will redirect to login page
+                )
+                .csrf((csrf) -> csrf
+                        .csrfTokenRepository(new HttpSessionCsrfTokenRepository())
                 )
                 .authorizeHttpRequests((requests) -> requests
                         .requestMatchers(new AntPathRequestMatcher("/")).permitAll()
