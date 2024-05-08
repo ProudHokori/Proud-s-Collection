@@ -1,7 +1,6 @@
 package proud.collection.dto;
 
 
-import jakarta.persistence.Lob;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
