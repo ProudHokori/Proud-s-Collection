@@ -10,8 +10,12 @@ import proud.collection.entity.Users;
 import proud.collection.repository.ConfirmationTokenRepository;
 import proud.collection.repository.UserRepository;
 
+import java.util.logging.Logger;
+
 @Service
 public class UserService {
+
+    private static final Logger logger = Logger.getLogger(UserService.class.getName());
 
     @Autowired
     private UserRepository userRepository;
@@ -30,6 +34,7 @@ public class UserService {
             Users user = userRepository.findByEmailIgnoreCase(token.getUser().getEmail());
             user.setEnabled(true);
             userRepository.save(user);
+            logger.info("User id: " + user.getId() + " has been verified with email: " + user.getEmail());
             return ResponseEntity.ok("Email verified successfully!");
         }
         return ResponseEntity.badRequest().body("Error: Couldn't verify email");
@@ -40,6 +45,7 @@ public class UserService {
         if (user != null) {
             user.setResetPasswordToken(token);
             userRepository.save(user);
+            logger.info("User id: " + user.getId() + " has been updated with reset password token: " + token);
         }else{
             throw new RuntimeException("User not found");
         }
@@ -56,5 +62,7 @@ public class UserService {
         user.setPassword(hashedPassword);
         user.setResetPasswordToken(null);
         userRepository.save(user);
+
+        logger.info("User id: " + user.getId() + " has updated their password");
     }
 }

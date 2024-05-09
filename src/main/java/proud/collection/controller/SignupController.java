@@ -88,7 +88,7 @@ public class SignupController {
         }
         model.addAttribute("signupRequest", new SignupRequest());
 
-        logger.info("User signed up successfully");
+        logger.info("User: "+ member.getUsername() + "signed up successfully");
         return "signup";
     }
 
