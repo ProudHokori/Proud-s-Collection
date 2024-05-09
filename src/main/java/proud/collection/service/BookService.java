@@ -2,6 +2,8 @@ package proud.collection.service;
 
 
 import jakarta.validation.Valid;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.multipart.MultipartFile;
 import proud.collection.dto.BookRequest;
 import proud.collection.dto.RatingRequest;
@@ -21,13 +23,12 @@ import java.time.Instant;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.UUID;
-import java.util.logging.Logger;
 
 
 @Service
 public class BookService {
 
-   private static final Logger logger = Logger.getLogger(BookService.class.getName());
+   Logger logger = LoggerFactory.getLogger(BookService.class);
 
 
     @Autowired

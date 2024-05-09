@@ -2,8 +2,9 @@ package proud.collection.controller;
 
 
 import jakarta.validation.Valid;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import proud.collection.dto.RatingRequest;
 import proud.collection.service.RatingService;
 
@@ -15,15 +16,12 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 
-import java.util.UUID;
-import java.util.logging.Logger;
-
 
 @Controller
 @RequestMapping("/rating")
 public class RatingController {
 
-    private static final Logger logger = Logger.getLogger(RatingController.class.getName());
+    Logger logger = LoggerFactory.getLogger(RatingController.class);
 
     @Autowired
     private RatingService ratingService;
@@ -35,7 +33,7 @@ public class RatingController {
         try {
             ratingService.createReview(rating);
         }catch (Exception e){
-            logger.severe("Error creating rating: " + e.getMessage());
+            logger.error("Error creating rating: " + e.getMessage());
             model.addAttribute("error", e.getMessage());
             return "error";
         }

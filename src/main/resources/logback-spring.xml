@@ -6,20 +6,24 @@
     <property name="FILE_LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"/>
 
     <appender name="ERROR_FILE" class="ch.qos.logback.core.FileAppender">
-        <file>logs/${LOG_FILE_PREFIX}.error.log</file>
+        <file>${LOG_FILE_PREFIX}.error.log</file>
         <encoder>
             <pattern>${FILE_LOG_PATTERN}</pattern>
-        </encoder>
+        </encoder>`
     </appender>
 
     <appender name="INFO_FILE" class="ch.qos.logback.core.FileAppender">
-        <file>logs/${LOG_FILE_PREFIX}.info.log</file>
+        <file>${LOG_FILE_PREFIX}.info.log</file>
         <encoder>
             <pattern>${FILE_LOG_PATTERN}</pattern>
         </encoder>
     </appender>
 
     <logger name="org.springframework.web" level="INFO" additivity="false">
+        <appender-ref ref="INFO_FILE"/>
+    </logger>
+
+    <logger name="com.example" level="DEBUG" additivity="false">
         <appender-ref ref="INFO_FILE"/>
     </logger>
 

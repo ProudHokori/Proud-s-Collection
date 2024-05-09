@@ -1,8 +1,9 @@
 package proud.collection.service;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.mail.SimpleMailMessage;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import proud.collection.entity.ConfirmationToken;
@@ -10,12 +11,10 @@ import proud.collection.entity.Users;
 import proud.collection.repository.ConfirmationTokenRepository;
 import proud.collection.repository.UserRepository;
 
-import java.util.logging.Logger;
-
 @Service
 public class UserService {
 
-    private static final Logger logger = Logger.getLogger(UserService.class.getName());
+    Logger logger = LoggerFactory.getLogger(UserService.class);
 
     @Autowired
     private UserRepository userRepository;

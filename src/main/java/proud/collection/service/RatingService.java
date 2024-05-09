@@ -2,6 +2,8 @@ package proud.collection.service;
 
 
 import jakarta.validation.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -22,13 +24,12 @@ import java.time.Instant;
 import java.util.Optional;
 import java.util.Set;
 import java.util.UUID;
-import java.util.logging.Logger;
 
 
 @Service
 public class RatingService {
 
-    private static final Logger logger = Logger.getLogger(RatingService.class.getName());
+    Logger logger = LoggerFactory.getLogger(RatingService.class);
 
     @Autowired
     private RatingRepository ratingRepository;
@@ -80,7 +81,7 @@ public class RatingService {
             Users user = userRepository.findById(userId).orElseThrow(() -> new IllegalArgumentException("User not found"));
 
             if(!user.isEnabled()){
-                logger.warning("User id: " + userId  + "isn't verify an email yet and trying to rate a book");
+                logger.warn("User id: " + userId  + "isn't verify an email yet and trying to rate a book");
                 throw new IllegalStateException("User is not verified yet Please check your email for verification link");
             }
             newRating.setUser(user);

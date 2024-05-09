@@ -1,6 +1,8 @@
 package proud.collection.controller;
 
 import cn.apiclub.captcha.Captcha;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import proud.collection.dto.SignupRequest;
 import proud.collection.service.SignupService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,12 +18,11 @@ import proud.collection.utils.CaptchaUtil;
 import proud.collection.validation.CompromisedPasswordValidator;
 
 import java.security.NoSuchAlgorithmException;
-import java.util.logging.Logger;
 
 @Controller
 public class SignupController {
 
-    private static final Logger logger = Logger.getLogger(SignupController.class.getName());
+    Logger logger = LoggerFactory.getLogger(SignupController.class);
 
     @Autowired
     private SignupService signupService;
