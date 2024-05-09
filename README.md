@@ -18,9 +18,8 @@ User has 2 role: User and Admin
 
 `Admin` can do the following:
 - Add a new book to the collection
-  - Everything that user can do  
-  Note. Right now user need to config the admin through the database manually,
-  **By changing value on role column to ROLE_ADMIN in user_roles table. to obtain admin role**
+- Everything that user can do  
+**Note**. user need to config the admin through the database manually, **By changing value on role column to ROLE_ADMIN in user_roles table. to obtain admin role**
 
 `User` can do the following:
 - View all books in the collection
