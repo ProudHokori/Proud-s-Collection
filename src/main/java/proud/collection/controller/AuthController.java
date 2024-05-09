@@ -28,9 +28,12 @@ import proud.collection.validation.CompromisedPasswordValidator;
 
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
+import java.util.logging.Logger;
 
 @Controller
 public class AuthController {
+
+    private static final Logger logger = Logger.getLogger(AuthController.class.getName());
 
     @Autowired
     private UserService userService;
@@ -51,8 +54,12 @@ public class AuthController {
         if (auth != null){
             new SecurityContextLogoutHandler()
                     .logout(request, response, auth);
-        }
 
+            // logging out user who log out
+                logger.info("User id: " + auth.getName() + " has logged out");
+             }
+
+        logger.info("User has logged out");
         // You can redirect wherever you want, but generally it's a good
         // practice to show the login screen again.
         return "redirect:/login?logout";
@@ -61,6 +68,7 @@ public class AuthController {
 
     @GetMapping("/forgot_password")
     public String showForgotPasswordForm() {
+        logger.info("User requested forgot password form");
         return "forgot-password";
     }
 
@@ -74,6 +82,7 @@ public class AuthController {
             String resetPasswordLink = UrlUtil.getSiteURL(request) + "/reset_password?token=" + token;
             sendEmail(email, resetPasswordLink);
             model.addAttribute("message", "We have sent a reset password link to your email. Please check.");
+            logger.info("Reset password link sent to email: " + email);
 
         } catch (UsernameNotFoundException ex) {
             model.addAttribute("error", ex.getMessage());
@@ -95,6 +104,7 @@ public class AuthController {
 
         MimeMessage mailMessage = emailService.createEmail(email, "Here's the link to reset your password", content);
         emailService.sendEmail(mailMessage);
+        logger.info("Reset password link sent to email: " + email);
     }
 
 
@@ -108,6 +118,7 @@ public class AuthController {
             model.addAttribute("message", "Invalid Token");
             return "message";
         }
+        logger.info("User requested reset password form");
 
         return "reset-password-form";
     }
@@ -138,6 +149,7 @@ public class AuthController {
             userService.updatePassword(user, password);
 
             model.addAttribute("message", "You have successfully changed your password.");
+            logger.info("User has successfully changed password");
         }
 
         return "message";
