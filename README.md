@@ -20,7 +20,7 @@ User has 2 role: User and Admin
 - Add a new book to the collection
 - Every thing that user can do
 Note. Right now user need to config the admin through the database manually,
-By changing value on is_accept_consent, and is_enabled column to 1 in users table.
+**By changing value on is_accept_consent, and is_enabled column to 1 in users table.**
 
 `User` can do the following:
 - View all books in the collection
